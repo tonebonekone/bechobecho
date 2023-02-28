@@ -1,7 +1,7 @@
-var global_i = void 0;
-var global_p = !0;
-var global_A = null;
-var global_V = !1;
+var i = void 0;
+var p = !0;
+var A = null;
+var V = !1;
 
 (function () {
   function Ca() {
@@ -18,43 +18,36 @@ var global_V = !1;
     this.p(a);
   }
 
-  function slider_initialize(body, draggableObject) {
+  function Ga(body, draggableObject) {
     console.log("called Ga(body,draggableObject)");
     // console.log("a", body);
     // console.log("b", draggableObject);
     this.V = [];
     this.height = 32;
-    this.el_sliderBoard;
-    this.el_sliderBoardBG;
-    this.el_sliderBoardTitleBar;
-    this.el_sliderBoardCloseButton;
+    this.a;
+    this.z;
+    this.da;
+    this.m;
     this.t;
     this.O;
-    this.w = global_p;
+    this.w = p;
     this.K = -1;
-    this.ua = global_p;
+    this.ua = p;
     this.p(draggableObject || {});
     console.log("this.V", this.V);
     console.log("this.height", this.height);
-    console.log("this.el_sliderBoard", this.el_sliderBoard);
-    console.log("this.el_sliderBoardBG", this.el_sliderBoardBG);
-    console.log("this.el_sliderBoardTitleBar", this.el_sliderBoardTitleBar);
-    console.log(
-      "this.el_sliderBoardCloseButton",
-      this.el_sliderBoardCloseButton
-    );
-    console.log("this.t", this.t);
-    console.log("this.O", this.O);
-    console.log("this.w", this.w);
-    console.log("this.K", this.K);
-    console.log("this.ua", this.ua);
-    body.appendChild(this.el_sliderBoard);
+    console.log("this.a", this.a);
+    console.log("this.z", this.z);
+    console.log("this.da", this.da);
+    console.log("this.m", this.m);
+
+    body.appendChild(this.a);
   }
 
-  function X(arg) {
-    this.u = arg;
+  function X(a) {
+    this.u = a;
     this.ca = 1;
-    this.h = this.l = global_A;
+    this.h = this.l = A;
     this.n = this.e = 0;
     this.c = [];
     this.b = [];
@@ -62,9 +55,9 @@ var global_V = !1;
     this.Da = 2;
   }
 
-  function G(arg) {
-    this.u = arg;
-    this.h = this.l = global_A;
+  function G(a) {
+    this.u = a;
+    this.h = this.l = A;
     this.n = this.e = 0;
     this.c = [];
     this.b = [];
@@ -82,8 +75,8 @@ var global_V = !1;
     }, 2500);
   }
 
-  function Ha(arg) {
-    el_image = arg;
+  function Ha(a) {
+    N = a;
     1300 > window.innerWidth &&
       (o = 0.65 + 0.35 * ((window.innerWidth - 950) / 350));
     800 > window.innerWidth && (o = O);
@@ -97,26 +90,24 @@ var global_V = !1;
       (getElementByIdWrapper("out").style.height =
         window.outerHeight + 100 + "px"),
       (getElementByIdWrapper("stickyContainer").style.visibility = "visible"),
-      (Y = global_p),
+      (Y = p),
       (ca = oa),
       (Ia = 0.055),
       (Ja = 0.94),
       (stiffness = w = 0.18),
       (Ka = 10),
       (v = s = 4));
-
-    for (var arg = La / (v - 1), b = yb / (s - 1), c = v * s; c--; ) {
+    for (var a = La / (v - 1), b = yb / (s - 1), c = v * s; c--; ) {
       var d = c % v,
         e = Math.floor(c / v),
         f;
       f = new zb();
       u || ((f.i = -25 - 15 * Math.random()), (f.f = -5 - 5 * Math.random()));
-      f.x = arg * d + Ma;
+      f.x = a * d + Ma;
       f.y = b * e + Na;
       f.fa = d;
       f.ta = e;
-      if (0 == d || d == v - 1 || 0 == e || e == s - 1)
-        (f.ja = global_p), Ab.push(f);
+      if (0 == d || d == v - 1 || 0 == e || e == s - 1) (f.ja = p), Ab.push(f);
       meshPoints[c] = f;
       var h;
       e < s - 1 &&
@@ -136,7 +127,6 @@ var global_V = !1;
         y.push(H(f, h)),
         y.push(H(h, f)));
     }
-
     D = meshPoints.length;
     Oa = 0.5 * D;
     l.push(meshPoints[0]);
@@ -144,8 +134,8 @@ var global_V = !1;
     l.push(meshPoints[D - 1]);
     l.push(meshPoints[D - v]);
     Bb();
-    addEventListeners();
-    Pa = global_V;
+    Cb();
+    Pa = V;
   }
   function wb() {
     cursorGrabURL = cursorHandURL = pa;
@@ -205,17 +195,16 @@ var global_V = !1;
   }
   function xb() {
     ca = function () {
-      return global_p;
+      return p;
     };
   }
   function ga() {
-    ha = global_V;
+    ha = V;
     Sa();
   }
-
   function Bb() {
-    el_canvas = getElementByIdWrapper("bigCanvas");
-    drawingContext = el_canvas.getContext("2d");
+    canvasElement = getElementByIdWrapper("bigCanvas");
+    sa = canvasElement.getContext("2d");
     var a = getElementByIdWrapper("stickyContainer");
     Y
       ? (S = new X(a))
@@ -223,60 +212,56 @@ var global_V = !1;
         a.addEventListener(
           "mouseover",
           function () {
-            ta = global_p;
+            ta = p;
           },
-          global_V
+          V
         ),
         a.addEventListener(
           "mouseout",
           function () {
-            ta = global_V;
+            ta = V;
           },
-          global_V
+          V
         ));
-    S.p(el_image, v - 1, s - 1, drawingContext);
+    S.p(N, v - 1, s - 1, sa);
   }
 
-  function addEventListeners() {
+  function Cb() {
     console.log("called Cb()");
     console.log("u", u);
     console.log("Y", Y);
-    console.log("V", global_V);
+    console.log("V", V);
 
     u
       ? Y
-        ? (el_canvas.addEventListener(
-            "touchstart",
-            handler_touchstart,
-            global_V
-          ),
-          el_canvas.addEventListener("touchend", handler_touchend, global_V),
-          el_canvas.addEventListener("touchmove", handler_touchmove, global_V))
+        ? (canvasElement.addEventListener("touchstart", handler_touchstart, V),
+          canvasElement.addEventListener("touchend", handler_touchend, V),
+          canvasElement.addEventListener("touchmove", handler_touchmove, V))
         : (getElementByIdWrapper("stickyContainer").addEventListener(
             "touchstart",
             handler_touchstart,
-            global_V
+            V
           ),
           getElementByIdWrapper("stickyContainer").addEventListener(
             "touchend",
             handler_touchend,
-            global_V
+            V
           ),
           getElementByIdWrapper("stickyContainer").addEventListener(
             "touchmove",
             handler_touchmove,
-            global_V
+            V
           ),
           document.addEventListener(
             "touchmove",
             function (a) {
               a.preventDefault();
             },
-            global_V
+            V
           ))
-      : (document.addEventListener("mousedown", handler_mousedown, global_V),
-        document.addEventListener("mouseup", meshes_something, global_V),
-        document.addEventListener("mousemove", Db, global_V));
+      : (document.addEventListener("mousedown", handler_mousedown, V),
+        document.addEventListener("mouseup", ua, V),
+        document.addEventListener("mousemove", Db, V));
 
     document.addEventListener(
       "gesturestart",
@@ -284,7 +269,7 @@ var global_V = !1;
         a.preventDefault();
         Xa = o;
       },
-      global_V
+      V
     );
     document.addEventListener(
       "gesturechange",
@@ -294,7 +279,7 @@ var global_V = !1;
             (o = Xa + 0.415 * (a.scale - 1)),
             (o = Math.min(Z, Math.max(o, O)));
       },
-      global_V
+      V
     );
     document.addEventListener(
       "gestureend",
@@ -302,39 +287,35 @@ var global_V = !1;
         localStorage.removeItem("stickything.scale");
         localStorage.setItem("stickything.scale", o);
       },
-      global_V
+      V
     );
-    window.addEventListener("devicemotion", handler_devicemotion, global_V);
+    window.addEventListener("devicemotion", handler_devicemotion, V);
     document
       .getElementById("options")
-      .addEventListener(
-        "click",
-        addOrRemoveMouseOverOutEventListener,
-        global_V
-      );
+      .addEventListener("click", addOrRemoveMouseOverOutEventListener, V);
     if (!u)
       for (var a = document.getElementsByTagName("a"), b = 0; b < a.length; b++)
         a[b].addEventListener(
           "mouseover",
           function () {
-            aa = global_p;
+            aa = p;
           },
-          global_V
+          V
         ),
           a[b].addEventListener(
             "mouseout",
             function () {
-              aa = global_V;
+              aa = V;
             },
-            global_V
+            V
           );
     document.onselectstart = function () {
-      return global_V;
+      return V;
     };
     document.body.addEventListener(
       "orientationchange",
       handler_orientationchange,
-      global_V
+      V
     );
   }
 
@@ -367,7 +348,7 @@ var global_V = !1;
     }
   }
   function ub() {
-    return 0 < drawingContext.getImageData(E - 1, F - 1, 1, 1).data[0];
+    return 0 < sa.getImageData(E - 1, F - 1, 1, 1).data[0];
   }
   function oa() {
     var a = bb(l);
@@ -397,9 +378,9 @@ var global_V = !1;
       var a = new Date().getTime(),
         b = a - cb;
       cb = a;
-      if (33 > b && !va) va = global_p;
+      if (33 > b && !va) va = p;
       else {
-        va = global_V;
+        va = V;
         Pa &&
           ((db = window.screenX - eb),
           (fb = window.screenY - gb),
@@ -441,10 +422,10 @@ var global_V = !1;
         J = (d.x - (c.x + Math.cos(h) * b.length * o)) * stiffness,
         h = (d.y - (c.y + Math.sin(h) * b.length * o)) * stiffness,
         g = 0.5 * (Math.abs(J) + Math.abs(h)) > L;
-      u && U && (g = global_p);
+      u && U && (g = p);
       if (!c.q || g)
         (e = Math.atan2(f, e)),
-          (c.q = global_V),
+          (c.q = V),
           (c.j += J),
           (c.k += h),
           (c.x += J * ma),
@@ -452,11 +433,7 @@ var global_V = !1;
           (c.G += lb(e - (b.s + c.s)) * Ia),
           (c.s += c.G);
       if (!d.q || g)
-        (d.q = global_V),
-          (d.j -= J),
-          (d.k -= h),
-          (d.x -= J * ma),
-          (d.y -= h * ma);
+        (d.q = V), (d.j -= J), (d.k -= h), (d.x -= J * ma), (d.y -= h * ma);
     }
   }
 
@@ -474,13 +451,13 @@ var global_V = !1;
           f = b.$ ? 0.5 : 0.15;
         b.j += (c / e) * e * f;
         b.k += (d / e) * e * f;
-        b.q = global_V;
+        b.q = V;
       }
       if (b.q)
         if ((ka++, ba < Oa)) {
           ba++;
           continue;
-        } else b.q = global_V;
+        } else b.q = V;
       b.i *= xa;
       b.f *= xa;
       b.j += ab;
@@ -500,15 +477,15 @@ var global_V = !1;
       b.f < -K && (b.f = -K);
       var c = b.x + b.i,
         d = b.y + b.f,
-        f = (e = global_V),
+        f = (e = V),
         h = ea,
         J = $ - ea,
         g = ea,
         k = fa - ea;
-      c > J && ((e = global_p), (c = J));
-      c < h && ((e = global_p), (c = h));
-      d > k && ((f = global_p), (d = k));
-      d < g && ((f = global_p), (d = g));
+      c > J && ((e = p), (c = J));
+      c < h && ((e = p), (c = h));
+      d > k && ((f = p), (d = k));
+      d < g && ((f = p), (d = g));
       (e || f) && ka++;
       (h = (e || f) && ba < 0.25 * D)
         ? ((b.i = 0), (b.f = 0), (b.G = 0), e && (b.x = c), f && (b.y = d))
@@ -523,7 +500,7 @@ var global_V = !1;
         t = b;
         o = c;
         I = d;
-        wa = global_V;
+        wa = V;
         hb(l) || ib();
       },
       450,
@@ -535,9 +512,9 @@ var global_V = !1;
     stiffness = 0.8 * maxStiffness;
     t = 0;
     o *= 1.05;
-    meshes_something();
+    ua();
     handler_orientationchange();
-    wa = global_p;
+    wa = p;
     for (
       var a = bb(l),
         b = a.x + 0.5 * a.width,
@@ -566,7 +543,7 @@ var global_V = !1;
   }
   function handler_mousedown() {
     if (ja && !aa) {
-      U = global_p;
+      U = p;
       for (var a, b = [], c = meshPoints.length; c--; ) {
         a = meshPoints[c];
         var d = E - a.x,
@@ -575,17 +552,17 @@ var global_V = !1;
       }
       b.sort(Hb);
       a = b[0].oa;
-      a.$ = global_p;
+      a.$ = p;
       d = a.ja ? 5 : 9;
       for (c = -1; ++c < d; )
-        (a = b[c].oa), (a.Z = global_p), (a.Ta = E - a.x), (a.Ua = F - a.y);
+        (a = b[c].oa), (a.Z = p), (a.Ta = E - a.x), (a.Ua = F - a.y);
     }
   }
-  function meshes_something() {
+  function ua() {
     if (U) {
       for (var a = meshPoints.length; a--; )
-        (meshPoints[a].Z = global_V), (meshPoints[a].$ = global_V);
-      U = global_V;
+        (meshPoints[a].Z = V), (meshPoints[a].$ = V);
+      U = V;
     }
   }
   function Db(a) {
@@ -597,13 +574,13 @@ var global_V = !1;
     u && 1 != document.body.scrollTop && window.scrollTo(0, 1);
     $ = window.innerWidth;
     fa = window.innerHeight;
-    for (var a = meshPoints.length; a--; ) meshPoints[a].q = global_V;
-    el_canvas.width = $;
-    el_canvas.height = fa;
+    for (var a = meshPoints.length; a--; ) meshPoints[a].q = V;
+    canvasElement.width = $;
+    canvasElement.height = fa;
   }
   function handler_touchstart(a) {
     console.log("called handler_touchStart()");
-    // console.log("a", a);
+    console.log("a", a);
     1 == a.touches.length &&
       ((E = a.touches[0].pageX),
       (F = a.touches[0].pageY),
@@ -612,7 +589,7 @@ var global_V = !1;
   }
   function handler_touchend(a) {
     console.log("called handler_touchEnd()");
-    3 != a.target.nodeType && (a.preventDefault(), meshes_something());
+    3 != a.target.nodeType && (a.preventDefault(), ua());
   }
   function handler_touchmove(a) {
     1 == a.touches.length &&
@@ -645,12 +622,12 @@ var global_V = !1;
           0 <
           (a[f].x - a[e].x) * (a[h].y - a[f].y) -
             (a[h].x - a[f].x) * (a[f].y - a[e].y)
-            ? global_p
-            : global_V;
+            ? p
+            : V;
       if (0 == d) b = e;
-      else if (b != e) return global_V;
+      else if (b != e) return V;
     }
-    return global_p;
+    return p;
   }
   function Gb(a, b, c, d, e) {
     var f = c - a,
@@ -665,31 +642,31 @@ var global_V = !1;
     a > c && (a = c);
     return a;
   }
-
   function zb() {
     this.s = this.G = this.k = this.j = this.f = this.i = this.ta = this.fa = 0;
-    this.ja = this.$ = this.Z = this.q = global_V;
+    this.ja = this.$ = this.Z = this.q = V;
   }
   function Fb() {
-    this.qa = this.pa = global_A;
+    this.qa = this.pa = A;
     this.length = 0.001;
     this.s = 0;
     this.color = "#000";
   }
 
-  function getStuffFromLocalStorage() {
-    console.log("Q", Q);
+  function Ib() {
+    // console.log("called Ib()");
+    // console.log("Q", Q);
     Q
       ? setTimeout(function () {
-          Ha(el_image);
+          Ha(N);
           ob();
           pb.p();
         }, 750)
-      : (Ha(el_image),
+      : (Ha(N),
         isNaN(parseFloat(localStorage.getItem("stickything.stickiness"))) ||
           ((t = parseFloat(localStorage.getItem("stickything.stickiness"))),
           (t = Aa(t, W, maxStickiness)),
-          (qb = global_V)),
+          (qb = V)),
         isNaN(parseFloat(localStorage.getItem("stickything.stiffness"))) ||
           ((w = parseFloat(localStorage.getItem("stickything.stiffness"))),
           (w = Aa(w, minStiffness, maxStiffness))),
@@ -724,8 +701,7 @@ var global_V = !1;
 
   function ob() {
     console.log("called ob()");
-    g = new slider_initialize(document.body, { draggable: !u });
-    console.log("g", g);
+    g = new Ga(document.body, { draggable: !u });
     console.log("g", g);
     g.add(
       "stickiness",
@@ -818,32 +794,31 @@ var global_V = !1;
   /**
    * Something about removing the mouseover event listener
    */
-  function addOrRemoveMouseOverOutEventListener(arg) {
+  function addOrRemoveMouseOverOutEventListener(a) {
     g.w
-      ? (g.el_sliderBoard.removeEventListener("mouseover", na, global_V),
-        g.el_sliderBoard.removeEventListener("mouseout", na, global_V),
-        arg && g.X(),
-        (aa = global_V))
-      : (g.el_sliderBoard.addEventListener("mouseover", na, global_V),
-        g.el_sliderBoard.addEventListener("mouseout", na, global_V),
+      ? (g.a.removeEventListener("mouseover", na, V),
+        g.a.removeEventListener("mouseout", na, V),
+        a && g.X(),
+        (aa = V))
+      : (g.a.addEventListener("mouseover", na, V),
+        g.a.addEventListener("mouseout", na, V),
         Kb());
   }
   function na(a) {
-    aa = "mouseover" == a.type ? global_p : global_V;
+    aa = "mouseover" == a.type ? p : V;
   }
   function Kb() {
     var a = window.innerWidth - 318,
       b = rb;
-    r.o(g.el_sliderBoard, a, Ka);
+    r.o(g.a, a, Ka);
     g.show();
-    g.el_sliderBoard.style.opacity = 0;
+    g.a.style.opacity = 0;
     clearInterval(Ba);
     Ba = setInterval(function () {
-      var c = r.v(g.el_sliderBoard).y,
+      var c = r.v(g.a).y,
         d = 0.35 * (b - c);
-      r.o(g.el_sliderBoard, a, c + d);
-      g.el_sliderBoard.style.opacity =
-        parseFloat(g.el_sliderBoard.style.opacity) + 0.125;
+      r.o(g.a, a, c + d);
+      g.a.style.opacity = parseFloat(g.a.style.opacity) + 0.125;
       0.65 > Math.abs(d) && clearInterval(Ba);
     }, 25);
   }
@@ -864,102 +839,100 @@ var global_V = !1;
     }
   }
   var r = (function () {
-    function a(arg) {
-      function c(arg) {
-        var b = d(arg),
-          f = h[0] + (b[0] - j[0]),
-          b = h[1] + (b[1] - j[1]);
-        if (e.d) {
-          var g = e.d;
-          f < g.left && (f = g.left);
-          f > g.right && (f = g.right);
-          b < g.top && (b = g.top);
-          b > g.bottom && (b = g.bottom);
+      function a(a) {
+        function c(a) {
+          var b = d(a),
+            f = h[0] + (b[0] - j[0]),
+            b = h[1] + (b[1] - j[1]);
+          if (e.d) {
+            var g = e.d;
+            f < g.left && (f = g.left);
+            f > g.right && (f = g.right);
+            b < g.top && (b = g.top);
+            b > g.bottom && (b = g.bottom);
+          }
+          e.Ea || B(e.element, f, b);
+          e.J !== i && e.J(a, f, b);
         }
-        e.Ea || B(e.element, f, b);
-        e.J !== global_i && e.J(arg, f, b);
+        function d(a) {
+          var c;
+          a.touches && a.touches.length
+            ? ((c = a.touches[0].clientX), (a = a.touches[0].clientY))
+            : ((c = a.clientX), (a = a.clientY));
+          c = b(e.element, c, a);
+          return [c.x, c.y];
+        }
+        var e = g[a.target.wa];
+        "touchstart" === a.type
+          ? ((e.handle.onmousedown = A),
+            (e.handle.ontouchmove = c),
+            (e.handle.ontouchend = function () {
+              e.handle.ontouchmove = A;
+              e.handle.ontouchend = A;
+              e.r && e.r(a);
+            }))
+          : ((document.onmousemove = c),
+            (document.onmouseup = function () {
+              document.onmousemove = A;
+              document.onmouseup = A;
+              e.r && e.r(a);
+            }));
+        a.preventDefault();
+        var f = k(e.element),
+          h = [f.x, f.y],
+          j = d(a);
+        e.T && e.T(a);
+        return V;
+      }
+      function b(a, b, c) {
+        for (a = a.parentElement; a; )
+          (b -= a.offsetLeft), (c -= a.offsetTop), (a = a.parentElement);
+        return { x: b, y: c };
+      }
+      function c(a, b, c) {
+        a.style.left = b + "px";
+        a.style.top = c + "px";
       }
       function d(a) {
-        var c;
-        a.touches && a.touches.length
-          ? ((c = a.touches[0].clientX), (a = a.touches[0].clientY))
-          : ((c = a.clientX), (a = a.clientY));
-        c = b(e.element, c, a);
-        return [c.x, c.y];
+        return { x: a.offsetLeft, y: a.offsetTop };
       }
-      var e = g[arg.target.wa];
-      "touchstart" === arg.type
-        ? ((e.handle.onmousedown = global_A),
-          (e.handle.ontouchmove = c),
-          (e.handle.ontouchend = function () {
-            e.handle.ontouchmove = global_A;
-            e.handle.ontouchend = global_A;
-            e.r && e.r(arg);
-          }))
-        : ((document.onmousemove = c),
-          (document.onmouseup = function () {
-            document.onmousemove = global_A;
-            document.onmouseup = global_A;
-            e.r && e.r(arg);
-          }));
-      arg.preventDefault();
-      var f = k(e.element),
-        h = [f.x, f.y],
-        j = d(arg);
-      e.T && e.T(arg);
-      return global_V;
-    }
-    function b(a, b, c) {
-      for (a = a.parentElement; a; )
-        (b -= a.offsetLeft), (c -= a.offsetTop), (a = a.parentElement);
-      return { x: b, y: c };
-    }
-    function c(a, b, c) {
-      a.style.left = b + "px";
-      a.style.top = c + "px";
-    }
-    function d(a) {
-      return { x: a.offsetLeft, y: a.offsetTop };
-    }
-    function e(a, b, c) {
-      a.style.WebkitTransform = "translate3d(" + b + "px," + c + "px,0px)";
-    }
-    function f(arg) {
-      console.log("arg", arg);
-      arg = new WebKitCSSMatrix(window.getComputedStyle(arg).webkitTransform);
-      return { x: arg.m41, y: arg.m42 };
-    }
-    var h = 0,
-      g = {},
-      B,
-      k;
-    navigator.userAgent.match(/iPhone/i) ||
-      navigator.userAgent.match(/iPod/i) ||
-      navigator.userAgent.match(/iPad/i);
-    /AppleWebKit/.test(navigator.userAgent)
-      ? ((B = e), (k = f))
-      : ((B = c), (k = d));
-    return {
-      ka: function (b) {
-        b.handle || (b.handle = b.element);
-        b.handle.onmousedown = b.handle.ontouchstart = a;
-        var c = h++;
-        b.handle.wa = c;
-        g[c] = b;
-      },
-      Wa: b,
-      o: B,
-      v: k,
-      ra: function (a) {
-        var b = k(a);
-        a.style.left = b.x + "px";
-        a.style.top = b.y + "px";
-        a.style.WebkitTransform = "";
-      },
-    };
-  })();
-
-  var n = Fa.prototype;
+      function e(a, b, c) {
+        a.style.WebkitTransform = "translate3d(" + b + "px," + c + "px,0px)";
+      }
+      function f(a) {
+        a = new WebKitCSSMatrix(window.getComputedStyle(a).webkitTransform);
+        return { x: a.m41, y: a.m42 };
+      }
+      var h = 0,
+        g = {},
+        B,
+        k;
+      navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/iPad/i);
+      /AppleWebKit/.test(navigator.userAgent)
+        ? ((B = e), (k = f))
+        : ((B = c), (k = d));
+      return {
+        ka: function (b) {
+          b.handle || (b.handle = b.element);
+          b.handle.onmousedown = b.handle.ontouchstart = a;
+          var c = h++;
+          b.handle.wa = c;
+          g[c] = b;
+        },
+        Wa: b,
+        o: B,
+        v: k,
+        ra: function (a) {
+          var b = k(a);
+          a.style.left = b.x + "px";
+          a.style.top = b.y + "px";
+          a.style.WebkitTransform = "";
+        },
+      };
+    })(),
+    n = Fa.prototype;
 
   // n
   n.U = function (a) {
@@ -970,22 +943,22 @@ var global_V = !1;
     a = this.map(this.value, this.R, this.Q, this.d.left, this.d.right);
     r.o(this.g, a, 0);
   };
-  n.p = function (arg) {
+  n.p = function (a) {
     this.za();
-    this.Ka = arg.Ca !== global_i ? arg.Ca : 1;
-    this.id = arg.id;
-    this.index = arg.index;
-    this.u = arg.u;
-    this.R = arg.min;
-    this.Q = arg.max;
-    this.Ja = arg.na !== global_i ? arg.na : arg.min;
-    this.Ia = arg.ma !== global_i ? arg.ma : arg.max;
-    this.ba = arg.ba || function () {};
-    this.La = arg.r !== global_i ? arg.r : function () {};
+    this.Ka = a.Ca !== i ? a.Ca : 1;
+    this.id = a.id;
+    this.index = a.index;
+    this.u = a.u;
+    this.R = a.min;
+    this.Q = a.max;
+    this.Ja = a.na !== i ? a.na : a.min;
+    this.Ia = a.ma !== i ? a.ma : a.max;
+    this.ba = a.ba || function () {};
+    this.La = a.r !== i ? a.r : function () {};
     this.width = 175;
     this.D = 16;
     this.d = { top: 0, left: 0, right: this.width - this.D, bottom: 0 };
-    this.u.appendChild(this.el_sliderBoard);
+    this.u.appendChild(this.a);
     this.Ma();
     var b = this;
     r.ka({
@@ -1001,9 +974,9 @@ var global_V = !1;
       J: function (a, d, e) {
         b.J(a, d, e);
       },
-      Ea: global_p,
+      Ea: p,
     });
-    this.va(arg.value !== global_i ? arg.value : -1);
+    this.va(a.value !== i ? a.value : -1);
     setTimeout(function () {
       b.D = b.g.offsetWidth;
       b.D = b.g.offsetWidth;
@@ -1012,8 +985,8 @@ var global_V = !1;
     }, 0);
   };
   n.za = function () {
-    this.el_sliderBoard = document.createElement("div");
-    this.el_sliderBoard.className = "sliderContainer";
+    this.a = document.createElement("div");
+    this.a.className = "sliderContainer";
     this.g = document.createElement("div");
     this.g.className = "sliderThumb";
     this.W = document.createElement("div");
@@ -1021,15 +994,15 @@ var global_V = !1;
     this.g.appendChild(this.W);
     this.F = document.createElement("div");
     this.F.className = "sliderTrack";
-    this.el_sliderScale = document.createElement("div");
-    this.el_sliderScale.className = "sliderScale";
+    this.scale = document.createElement("div");
+    this.scale.className = "sliderScale";
     this.A = document.createElement("div");
     this.A.className = "sliderOutput";
     this.A.innerHTML = "0.0";
-    this.el_sliderBoard.appendChild(this.F);
-    this.el_sliderBoard.appendChild(this.el_sliderScale);
-    this.el_sliderBoard.appendChild(this.g);
-    this.el_sliderBoard.appendChild(this.A);
+    this.a.appendChild(this.F);
+    this.a.appendChild(this.scale);
+    this.a.appendChild(this.g);
+    this.a.appendChild(this.A);
   };
   n.va = function (a) {
     if (a != this.value) {
@@ -1055,15 +1028,15 @@ var global_V = !1;
   n.r = function () {
     this.g.className = "sliderThumb";
     this.F.className = "sliderTrack";
-    this.La.apply(global_A, [this.value, this.Y]);
+    this.La.apply(A, [this.value, this.Y]);
   };
   n.Xa = function () {};
   n.Oa = function (a) {
     var b = a ? a : window.event,
       c = r.v(
-        this.el_sliderBoard.parentElement
-          ? this.el_sliderBoard.parentElement.parentElement
-          : this.el_sliderBoard.parentNode.parentNode
+        this.a.parentElement
+          ? this.a.parentElement.parentElement
+          : this.a.parentNode.parentNode
       ),
       c =
         ("mousedown" == a.type ? a.pageX : a.touches[0].pageX) -
@@ -1087,7 +1060,7 @@ var global_V = !1;
       function (b) {
         a.Oa(b);
       },
-      global_V
+      V
     );
   };
   n.map = function (a, b, c, d, e) {
@@ -1098,13 +1071,13 @@ var global_V = !1;
   n.toString = function () {
     return "[Slider]";
   };
-  n = slider_initialize.prototype;
+  n = Ga.prototype;
   n.p = function (a) {
     this.ya();
     if (a.draggable) {
       this.O = {
-        element: this.el_sliderBoard,
-        handle: this.el_sliderBoardBG,
+        element: this.a,
+        handle: this.z,
         d: {
           left: 0,
           top: 0,
@@ -1122,14 +1095,14 @@ var global_V = !1;
         function () {
           b.ga();
         },
-        global_V
+        V
       );
     }
   };
   n.add = function (a, b, c, d, e, f, h, g, B) {
     var k = document.createElement("div");
     k.className = "sliderItem";
-    this.el_sliderBoard.appendChild(k);
+    this.a.appendChild(k);
     var j = document.createElement("div");
     j.className = "sliderLabel";
     j.innerHTML = a;
@@ -1150,88 +1123,86 @@ var global_V = !1;
   };
   n.U = function (a, b) {
     for (var c = a - 40, d = this.V.length; d--; ) this.V[d].Na.U(c, b);
-    this.el_sliderBoard.style.width = a + "px";
-    this.el_sliderBoardCloseButton.style.left =
-      a - this.t.offsetWidth - 12 + "px";
+    this.a.style.width = a + "px";
+    this.m.style.left = a - this.t.offsetWidth - 12 + "px";
   };
   n.ya = function () {
-    this.el_sliderBoard = document.createElement("div");
-    this.el_sliderBoard.className = "sliderBoard";
-    this.el_sliderBoardBG = document.createElement("div");
-    this.el_sliderBoardBG.className = "sliderBoardBG";
-    this.el_sliderBoardTitleBar = document.createElement("div");
-    this.el_sliderBoardTitleBar.className = "sliderBoardTitleBar";
+    this.a = document.createElement("div");
+    this.a.className = "sliderBoard";
+    this.z = document.createElement("div");
+    this.z.className = "sliderBoardBG";
+    this.da = document.createElement("div");
+    this.da.className = "sliderBoardTitleBar";
     var a = this;
-    this.el_sliderBoardCloseButton = document.createElement("div");
-    this.el_sliderBoardCloseButton.className = "sliderBoardCloseButton";
-    this.el_sliderBoardCloseButton.onmouseup = function () {
+    this.m = document.createElement("div");
+    this.m.className = "sliderBoardCloseButton";
+    this.m.onmouseup = function () {
       a.X();
     };
-    this.el_sliderBoardCloseButton.ontouchstart = function (b) {
+    this.m.ontouchstart = function (b) {
       a.xa();
       b.preventDefault();
     };
-    this.el_sliderBoardCloseButton.ontouchend = function (b) {
+    this.m.ontouchend = function (b) {
       b.preventDefault();
       a.X();
     };
     var b = document.createElement("div");
     b.className = "sliderBoardCloseButtonHit";
-    this.el_sliderBoardCloseButton.appendChild(b);
+    this.m.appendChild(b);
     b = document.createElement("div");
     b.className = "sliderBoardCloseButtonBG";
-    this.el_sliderBoardCloseButton.appendChild(b);
+    this.m.appendChild(b);
     this.t = document.createElement("div");
     this.t.innerHTML = "\u2715";
     this.t.className = "sliderBoardCloseButtonIcon";
-    this.el_sliderBoardCloseButton.appendChild(this.t);
-    this.el_sliderBoard.appendChild(this.el_sliderBoardBG);
-    this.el_sliderBoard.appendChild(this.el_sliderBoardTitleBar);
-    this.el_sliderBoard.appendChild(this.el_sliderBoardCloseButton);
+    this.m.appendChild(this.t);
+    this.a.appendChild(this.z);
+    this.a.appendChild(this.da);
+    this.a.appendChild(this.m);
   };
   n.move = function (a, b) {
-    r.o(this.el_sliderBoard, a, b);
+    r.o(this.a, a, b);
   };
   n.ga = function () {
-    var a = window.innerWidth - this.el_sliderBoardBG.offsetWidth,
-      b = window.innerHeight - this.el_sliderBoardBG.offsetHeight;
+    var a = window.innerWidth - this.z.offsetWidth,
+      b = window.innerHeight - this.z.offsetHeight;
     0 > a && (a = 0);
     0 > b && (b = 0);
-    var c = r.v(this.el_sliderBoard);
+    var c = r.v(this.a);
     c.x > a && c.y > b
-      ? r.o(this.el_sliderBoard, a, b)
+      ? r.o(this.a, a, b)
       : c.x > a
-      ? r.o(this.el_sliderBoard, a, c.y)
-      : c.y > b && r.o(this.el_sliderBoard, c.x, b);
+      ? r.o(this.a, a, c.y)
+      : c.y > b && r.o(this.a, c.x, b);
     this.O.d.right = a;
     this.O.d.bottom = b;
   };
   n.show = function () {
-    this.el_sliderBoard.style.visibility = "visible";
-    this.w = global_p;
+    this.a.style.visibility = "visible";
+    this.w = p;
     clearInterval(this.K);
   };
   n.P = function () {
-    this.el_sliderBoard.style.visibility = "hidden";
-    this.w = global_V;
+    this.a.style.visibility = "hidden";
+    this.w = V;
     clearInterval(this.K);
   };
   n.X = function () {
-    console.log("close?");
-    this.S && this.S.apply(global_A);
+    this.S && this.S.apply(A);
     if (this.ua) {
-      var a = r.v(this.el_sliderBoard);
+      var a = r.v(this.a);
       this.move(a.x, a.y - 4);
-      this.w = global_V;
-      this.el_sliderBoard.style.opacity = 0.75;
+      this.w = V;
+      this.a.style.opacity = 0.75;
       clearInterval(this.K);
       this.K = setInterval(
-        function (arg) {
-          var c = r.v(arg.el_sliderBoard);
-          arg.move(c.x, c.y - 5);
-          c = parseFloat(arg.el_sliderBoard.style.opacity);
-          arg.el_sliderBoard.style.opacity = c - 0.175;
-          0 >= c && arg.P();
+        function (a) {
+          var c = r.v(a.a);
+          a.move(c.x, c.y - 5);
+          c = parseFloat(a.a.style.opacity);
+          a.a.style.opacity = c - 0.175;
+          0 >= c && a.P();
         },
         20,
         this
@@ -1385,7 +1356,7 @@ var global_V = !1;
       e > this.L && (this.L = e);
     }
   };
-  // console.log("X", X);
+  console.log("X", X);
 
   // G
   G.prototype.p = function (a, b, c, d) {
@@ -1581,15 +1552,15 @@ var global_V = !1;
 
     )
       if ("undefined" != typeof a.style[c]) return c;
-    return global_V;
+    return V;
   };
-  // console.log("G", G);
+  console.log("G", G);
 
   var pb = (function () {
       function a(a) {
         a = a ? "addEventListener" : "removeEventListener";
-        u[a]("touchend", d, global_V);
-        s[a]("touchend", k, global_V);
+        u[a]("touchend", d, V);
+        s[a]("touchend", k, V);
       }
       function setIconBarWidthHeight() {
         getElementByIdWrapper("iconBar").style.width = window.innerWidth + "px";
@@ -1610,29 +1581,27 @@ var global_V = !1;
         }, 750);
       }
       function d() {
-        g.w
-          ? e()
-          : (window.addEventListener("resize", f, global_V), (g.S = e), j());
+        g.w ? e() : (window.addEventListener("resize", f, V), (g.S = e), j());
       }
       function e() {
-        g.S = global_A;
+        g.S = A;
         l();
-        window.removeEventListener("resize", f, global_V);
+        window.removeEventListener("resize", f, V);
       }
       function f() {
         setTimeout(function () {
           var a = h();
-          g.el_sliderBoard.style.left = "0px";
-          g.el_sliderBoard.style.top = "0px";
+          g.a.style.left = "0px";
+          g.a.style.top = "0px";
           g.move(a.x, a.y);
-          r.ra(g.el_sliderBoard);
+          r.ra(g.a);
         }, 10);
       }
       function h() {
         var a, b;
         switch (v) {
           case "":
-            b = window.innerHeight - g.el_sliderBoard.offsetHeight;
+            b = window.innerHeight - g.a.offsetHeight;
             a = Math.round(0.5 * (window.innerWidth - t));
             b = Math.round(0.5 * b - (80 < b ? 22 : 5));
             break;
@@ -1647,41 +1616,40 @@ var global_V = !1;
         return { x: Math.round(a), y: Math.round(b) };
       }
       function j() {
-        ha = global_p;
+        ha = p;
         clearInterval(y);
         var a = h(),
           b = a.x,
           c = a.y;
-        g.el_sliderBoard.style.left = "0px";
-        g.el_sliderBoard.style.top = "0px";
+        g.a.style.left = "0px";
+        g.a.style.top = "0px";
         g.move(b, 0);
-        g.el_sliderBoard.style.opacity = 0;
+        g.a.style.opacity = 0;
         g.show();
         setTimeout(function () {
-          g.el_sliderBoard.style.opacity = 1;
-          g.el_sliderBoard.style.WebkitTransform =
+          g.a.style.opacity = 1;
+          g.a.style.WebkitTransform =
             "translate3d(" + b + "px," + c + "px,0px)";
-          g.el_sliderBoard.style.WebkitTransition =
+          g.a.style.WebkitTransition =
             "all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)";
         }, 0);
         setTimeout(function () {
-          g.el_sliderBoard.style.WebkitTransition = "";
-          r.ra(g.el_sliderBoard);
+          g.a.style.WebkitTransition = "";
+          r.ra(g.a);
           Ya || ga();
         }, 500);
       }
       function l() {
-        ha = global_p;
+        ha = p;
         clearInterval(y);
         var a = 0.3 * -h().y;
         setTimeout(function () {
-          g.el_sliderBoard.style.opacity = 0;
-          g.el_sliderBoard.style.WebkitTransform =
-            "translate3d(0px," + a + "px,0px)";
-          g.el_sliderBoard.style.WebkitTransition = "all 0.25s ease-in-out";
+          g.a.style.opacity = 0;
+          g.a.style.WebkitTransform = "translate3d(0px," + a + "px,0px)";
+          g.a.style.WebkitTransition = "all 0.25s ease-in-out";
         }, 0);
         setTimeout(function () {
-          g.el_sliderBoard.style.WebkitTransition = "";
+          g.a.style.WebkitTransition = "";
           g.P();
           x || ga();
         }, 200);
@@ -1693,11 +1661,11 @@ var global_V = !1;
           c(s);
           setIconBarWidthHeight();
           g.w && e();
-          ha = global_p;
-          m(global_V);
-          a(global_V);
+          ha = p;
+          m(V);
+          a(V);
           z.style.display = "block";
-          x = global_p;
+          x = p;
           var d = document.getElementById("aboutOverlayInner");
           d.style.WebkitTransform = "translate3d(0px,35px,0px)";
           var f = 0.5 * -d.offsetHeight,
@@ -1711,14 +1679,14 @@ var global_V = !1;
               "-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)";
           }, 0);
           setTimeout(function () {
-            z.addEventListener("touchstart", n, global_V);
+            z.addEventListener("touchstart", n, V);
           }, 650);
         }
       }
       function n(b) {
         b.target == z &&
           (setTimeout(function () {
-            z.removeEventListener("touchstart", n, global_V);
+            z.removeEventListener("touchstart", n, V);
             z.style.opacity = 0;
             z.style.WebkitTransition = "opacity 0.2s ease-out";
             var a = document.getElementById("aboutOverlayInner");
@@ -1728,21 +1696,21 @@ var global_V = !1;
           }, 0),
           setTimeout(function () {
             z.style.display = "none";
-            m(global_p);
-            a(global_p);
+            m(p);
+            a(p);
             ga();
-            x = global_V;
+            x = V;
           }, 300));
       }
 
-      function m(arg) {
-        arg
-          ? document.addEventListener("touchstart", o, global_V)
-          : document.removeEventListener("touchstart", o, global_V);
+      function m(a) {
+        a
+          ? document.addEventListener("touchstart", o, V)
+          : document.removeEventListener("touchstart", o, V);
       }
 
-      function o(arg) {
-        3 != arg.target.nodeType && arg.preventDefault();
+      function o(a) {
+        3 != a.target.nodeType && a.preventDefault();
       }
 
       var v = "",
@@ -1750,7 +1718,7 @@ var global_V = !1;
         u,
         s,
         z,
-        x = global_V,
+        x = V,
         w,
         y;
 
@@ -1776,7 +1744,7 @@ var global_V = !1;
               w = s;
               c(s);
             },
-            global_V
+            V
           );
           u = getElementByIdWrapper("optionsBTN");
           u.addEventListener(
@@ -1784,12 +1752,12 @@ var global_V = !1;
             function () {
               c(u);
             },
-            global_V
+            V
           );
-          m(global_p);
-          a(global_p);
+          m(p);
+          a(p);
           z = getElementByIdWrapper("aboutOverlay");
-          g.ua = global_V;
+          g.ua = V;
           g.U(t, -1);
           ra && (v = "TR");
           Q ||
@@ -1799,7 +1767,7 @@ var global_V = !1;
                 0 == document.body.scrollTop &&
                   setTimeout(window.scrollTo, 10, 0, 1);
               },
-              global_V
+              V
             );
           setTimeout(function () {
             handler_orientationchange();
@@ -1811,11 +1779,7 @@ var global_V = !1;
                 ((getElementByIdWrapper("out").style.height = "100%"),
                 handler_orientationchange());
               window.onresize = handler_orientationchange;
-              window.addEventListener(
-                "resize",
-                setIconBarWidthHeight,
-                global_V
-              );
+              window.addEventListener("resize", setIconBarWidthHeight, V);
               getElementByIdWrapper("stickyContainer").style.visibility =
                 "visible";
               ga();
@@ -1834,13 +1798,13 @@ var global_V = !1;
         },
       };
     })(),
-    el_canvas,
-    drawingContext,
+    canvasElement,
+    sa,
     S,
     E = 0,
     F = 0,
     Ba,
-    el_image,
+    N,
     za = Math.PI,
     nb = 2 * za,
     cursorHandURL = "url(img/cursor-hand.png),auto",
@@ -1864,7 +1828,7 @@ var global_V = !1;
     minStiffness = 0.045,
     maxStiffness = 0.2,
     w = stiffness,
-    qb = global_p,
+    qb = p,
     ea = -4,
     K = 60,
     $ = window.innerWidth,
@@ -1888,11 +1852,11 @@ var global_V = !1;
     fb = 0,
     eb = 0,
     gb = 0,
-    aa = global_V,
-    Pa = global_V,
-    ja = global_V,
-    U = global_V,
-    wa = global_V,
+    aa = V,
+    Pa = V,
+    ja = V,
+    U = V,
+    wa = V,
     tb = -1 != document.location.href.indexOf("http"),
     userAgent = navigator.userAgent,
     P =
@@ -1902,12 +1866,12 @@ var global_V = !1;
     Q = /Android/.test(userAgent),
     u = "ontouchend" in document,
     ra = u && 740 < window.innerWidth && 520 < window.innerHeight,
-    Y = global_p,
+    Y = p,
     ca,
-    ta = global_V,
+    ta = V,
     cb = 0,
-    va = global_V,
-    ha = global_V,
+    va = V,
+    ha = V,
     Xa = 0,
     g,
     rb = 60,
@@ -1922,18 +1886,18 @@ var global_V = !1;
   var xa = 1;
 
   requestAnimFrame = (function () {
-    return function (arg) {
-      window.setTimeout(arg, 15);
+    return function (a) {
+      window.setTimeout(a, 15);
     };
   })();
 
-  // console.log("pb", pb);
+  console.log("pb", pb);
 
   window.onload = function () {
     getElementByIdWrapper("stickyContainer").style.visibility = "hidden";
-    el_image = new Image();
-    el_image.onload = getStuffFromLocalStorage;
-    el_image.src = "img/alain-passard-radish.jpeg";
-    // console.log("image", image);
+    N = new Image();
+    N.onload = Ib;
+    N.src = "img/alain-passard-radish.jpeg";
+    console.log("N", N);
   };
 })();
