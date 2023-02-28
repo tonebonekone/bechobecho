@@ -28,22 +28,12 @@ var global_V = !1;
     this.el_sliderBoardBG;
     this.el_sliderBoardTitleBar;
     this.el_sliderBoardCloseButton;
-    this.t;
+    this.el_sliderBoardCloseButtonIcon;
     this.O;
     this.w = global_p;
     this.K = -1;
     this.ua = global_p;
-    this.p(draggableObject || {});
-    console.log("this.V", this.V);
-    console.log("this.height", this.height);
-    console.log("this.el_sliderBoard", this.el_sliderBoard);
-    console.log("this.el_sliderBoardBG", this.el_sliderBoardBG);
-    console.log("this.el_sliderBoardTitleBar", this.el_sliderBoardTitleBar);
-    console.log(
-      "this.el_sliderBoardCloseButton",
-      this.el_sliderBoardCloseButton
-    );
-    console.log("this.t", this.t);
+    this.p(draggableObject || {});    
     console.log("this.O", this.O);
     console.log("this.w", this.w);
     console.log("this.K", this.K);
@@ -1152,7 +1142,7 @@ var global_V = !1;
     for (var c = a - 40, d = this.V.length; d--; ) this.V[d].Na.U(c, b);
     this.el_sliderBoard.style.width = a + "px";
     this.el_sliderBoardCloseButton.style.left =
-      a - this.t.offsetWidth - 12 + "px";
+      a - this.el_sliderBoardCloseButtonIcon.offsetWidth - 12 + "px";
   };
   n.ya = function () {
     this.el_sliderBoard = document.createElement("div");
@@ -1181,10 +1171,12 @@ var global_V = !1;
     b = document.createElement("div");
     b.className = "sliderBoardCloseButtonBG";
     this.el_sliderBoardCloseButton.appendChild(b);
-    this.t = document.createElement("div");
-    this.t.innerHTML = "\u2715";
-    this.t.className = "sliderBoardCloseButtonIcon";
-    this.el_sliderBoardCloseButton.appendChild(this.t);
+    this.el_sliderBoardCloseButtonIcon = document.createElement("div");
+    this.el_sliderBoardCloseButtonIcon.innerHTML = "\u2715";
+    this.el_sliderBoardCloseButtonIcon.className = "sliderBoardCloseButtonIcon";
+    this.el_sliderBoardCloseButton.appendChild(
+      this.el_sliderBoardCloseButtonIcon
+    );
     this.el_sliderBoard.appendChild(this.el_sliderBoardBG);
     this.el_sliderBoard.appendChild(this.el_sliderBoardTitleBar);
     this.el_sliderBoard.appendChild(this.el_sliderBoardCloseButton);
@@ -1239,8 +1231,8 @@ var global_V = !1;
     }
   };
   n.xa = function () {
-    this.t.style.color = "#CCCCCC";
-    var a = this.t.style;
+    this.el_sliderBoardCloseButtonIcon.style.color = "#CCCCCC";
+    var a = this.el_sliderBoardCloseButtonIcon.style;
     setTimeout(function () {
       a.color = "#444444";
       a.WebkitTransition = "color 0.3s ease-in-out";
