@@ -1,27 +1,17 @@
-var i = void 0
-var p = !0
-var A = null
-var V = !1
-
+var i = void 0,
+  p = !0,
+  A = null,
+  V = !1
 ;(function () {
   function Ca() {
-    L =
-      t *
-      (0.105 +
-        0.895 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
+    L = t * (0.105 + 0.895 * ((x - C) / (M - C)))
     L < W && (L = W)
   }
   var Da, Ea
-
   function Fa(a) {
-    console.log('a', a)
     this.p(a)
   }
-
-  function Ga(body, draggableObject) {
-    console.log('called Ga(body,draggableObject)')
-    // console.log("a", body);
-    // console.log("b", draggableObject);
+  function Ga(a, b) {
     this.V = []
     this.height = 32
     this.a
@@ -33,17 +23,9 @@ var V = !1
     this.w = p
     this.K = -1
     this.ua = p
-    this.p(draggableObject || {})
-    console.log('this.V', this.V)
-    console.log('this.height', this.height)
-    console.log('this.a', this.a)
-    console.log('this.z', this.z)
-    console.log('this.da', this.da)
-    console.log('this.m', this.m)
-
-    body.appendChild(this.a)
+    this.p(b || {})
+    a.appendChild(this.a)
   }
-
   function X(a) {
     this.u = a
     this.ca = 1
@@ -54,7 +36,6 @@ var V = !1
     this.L = this.M = this.I = this.H = 0
     this.Da = 2
   }
-
   function G(a) {
     this.u = a
     this.h = this.l = A
@@ -63,7 +44,6 @@ var V = !1
     this.b = []
     this.B = this.C = 0
   }
-
   function sb() {
     var a = w,
       b = t
@@ -74,27 +54,25 @@ var V = !1
       t = b
     }, 2500)
   }
-
   function Ha(a) {
     N = a
     1300 > window.innerWidth &&
       (o = 0.65 + 0.35 * ((window.innerWidth - 950) / 350))
     800 > window.innerWidth && (o = O)
     Y = !P
-    ca = userAgent.match(/Firefox/i) ? oa : Y ? (tb ? ub : oa) : vb
+    ca = da.match(/Firefox/i) ? oa : Y ? (tb ? ub : oa) : vb
     u && wb()
     P && xb()
     Q &&
       ((document.body.style.overflow = 'visible'),
-      (getElementByIdWrapper('out').style.display = 'block'),
-      (getElementByIdWrapper('out').style.height =
-        window.outerHeight + 100 + 'px'),
-      (getElementByIdWrapper('stickyContainer').style.visibility = 'visible'),
+      (q('out').style.display = 'block'),
+      (q('out').style.height = window.outerHeight + 100 + 'px'),
+      (q('stickyContainer').style.visibility = 'visible'),
       (Y = p),
       (ca = oa),
       (Ia = 0.055),
       (Ja = 0.94),
-      (stiffness = w = 0.18),
+      (x = w = 0.18),
       (Ka = 10),
       (v = s = 4))
     for (var a = La / (v - 1), b = yb / (s - 1), c = v * s; c--; ) {
@@ -108,61 +86,50 @@ var V = !1
       f.fa = d
       f.ta = e
       if (0 == d || d == v - 1 || 0 == e || e == s - 1) (f.ja = p), Ab.push(f)
-      meshPoints[c] = f
+      j[c] = f
       var h
       e < s - 1 &&
-        ((h = meshPoints[Math.floor((e + 1) * v + d)]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
+        ((h = j[Math.floor((e + 1) * v + d)]), y.push(H(f, h)), y.push(H(h, f)))
       e < s - 2 &&
-        ((h = meshPoints[Math.floor((e + 2) * v + d)]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
+        ((h = j[Math.floor((e + 2) * v + d)]), y.push(H(f, h)), y.push(H(h, f)))
       d < s - 1 &&
-        ((h = meshPoints[Math.floor(e * v + (d + 1))]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
+        ((h = j[Math.floor(e * v + (d + 1))]), y.push(H(f, h)), y.push(H(h, f)))
       d < s - 2 &&
-        ((h = meshPoints[Math.floor(e * v + (d + 2))]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
+        ((h = j[Math.floor(e * v + (d + 2))]), y.push(H(f, h)), y.push(H(h, f)))
     }
-    D = meshPoints.length
+    D = j.length
     Oa = 0.5 * D
-    l.push(meshPoints[0])
-    l.push(meshPoints[v - 1])
-    l.push(meshPoints[D - 1])
-    l.push(meshPoints[D - v])
+    l.push(j[0])
+    l.push(j[v - 1])
+    l.push(j[D - 1])
+    l.push(j[D - v])
     Bb()
     Cb()
     Pa = V
   }
   function wb() {
-    cursorGrabURL = cursorHandURL = pa
+    Qa = Ra = pa
     ea = -2
     v = s = 5
-    stiffness = 0.07
-    minStiffness = 0.0635
-    maxStiffness = 0.2
+    x = 0.07
+    C = 0.0635
+    M = 0.2
     t = 4.5
-    maxStickiness = 10
+    qa = 10
     Na = Ma = 0
     I = 0.5
     ra
       ? ((o = 0.77), (Z *= 0.9), (O *= 0.75))
       : ((o = 0.35), (O = 0.225), (Z = 0.85))
     Ca = function () {
-      L =
-        t *
-        (0.35 +
-          0.65 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
+      L = t * (0.35 + 0.65 * ((x - C) / (M - C)))
       L < W && (L = W)
     }
     setTimeout(
       P
         ? function () {
             for (var a = D; a--; ) {
-              var b = meshPoints[a]
+              var b = j[a]
               b.x = 0.5 * $
               b.y = 0.35 * fa
               b.i = 0
@@ -181,14 +148,14 @@ var V = !1
               e--;
 
             ) {
-              var f = meshPoints[e]
+              var f = j[e]
               f.x = c + b * f.fa
               f.y = d + b * f.ta
               f.f = -a - Math.random() * a
             }
             b = 0.5 < Math.random() ? 1 : -1
-            meshPoints[0].f = (40 + 20 * Math.random()) * b
-            meshPoints[3].f = 50 * -b
+            j[0].f = (40 + 20 * Math.random()) * b
+            j[3].f = 50 * -b
           },
       50
     )
@@ -203,9 +170,9 @@ var V = !1
     Sa()
   }
   function Bb() {
-    canvasElement = getElementByIdWrapper('bigCanvas')
-    sa = canvasElement.getContext('2d')
-    var a = getElementByIdWrapper('stickyContainer')
+    R = q('bigCanvas')
+    sa = R.getContext('2d')
+    var a = q('stickyContainer')
     Y
       ? (S = new X(a))
       : ((S = new G(a)),
@@ -225,33 +192,15 @@ var V = !1
         ))
     S.p(N, v - 1, s - 1, sa)
   }
-
   function Cb() {
-    console.log('called Cb()')
-    console.log('u', u)
-    console.log('Y', Y)
-    console.log('V', V)
-
     u
       ? Y
-        ? (canvasElement.addEventListener('touchstart', handler_touchstart, V),
-          canvasElement.addEventListener('touchend', handler_touchend, V),
-          canvasElement.addEventListener('touchmove', handler_touchmove, V))
-        : (getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchstart',
-            handler_touchstart,
-            V
-          ),
-          getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchend',
-            handler_touchend,
-            V
-          ),
-          getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchmove',
-            handler_touchmove,
-            V
-          ),
+        ? (R.addEventListener('touchstart', Ta, V),
+          R.addEventListener('touchend', Ua, V),
+          R.addEventListener('touchmove', Va, V))
+        : (q('stickyContainer').addEventListener('touchstart', Ta, V),
+          q('stickyContainer').addEventListener('touchend', Ua, V),
+          q('stickyContainer').addEventListener('touchmove', Va, V),
           document.addEventListener(
             'touchmove',
             function (a) {
@@ -259,10 +208,9 @@ var V = !1
             },
             V
           ))
-      : (document.addEventListener('mousedown', handler_mousedown, V),
+      : (document.addEventListener('mousedown', Wa, V),
         document.addEventListener('mouseup', ua, V),
         document.addEventListener('mousemove', Db, V))
-
     document.addEventListener(
       'gesturestart',
       function (a) {
@@ -289,10 +237,8 @@ var V = !1
       },
       V
     )
-    window.addEventListener('devicemotion', handler_devicemotion, V)
-    document
-      .getElementById('options')
-      .addEventListener('click', addOrRemoveMouseOverOutEventListener, V)
+    window.addEventListener('devicemotion', Eb, V)
+    document.getElementById('options').addEventListener('click', Za, V)
     if (!u)
       for (var a = document.getElementsByTagName('a'), b = 0; b < a.length; b++)
         a[b].addEventListener(
@@ -312,21 +258,16 @@ var V = !1
     document.onselectstart = function () {
       return V
     }
-    document.body.addEventListener(
-      'orientationchange',
-      handler_orientationchange,
-      V
-    )
+    document.body.addEventListener('orientationchange', T, V)
   }
-
-  function handler_devicemotion(a) {
+  function Eb(a) {
     if (15 > $a) $a++
     else {
-      var a = a.accelerationIncludingGravity
-      var b = 0.1 * a.x
-      a = 0.1 * a.y
-      var c = 2.65 * ia
-      var d = 0.85 * ia
+      var a = a.accelerationIncludingGravity,
+        b = 0.1 * a.x,
+        a = 0.1 * a.y,
+        c = 2.65 * ia,
+        d = 0.85 * ia
       switch (window.orientation) {
         case -90:
           d *= b
@@ -373,6 +314,7 @@ var V = !1
     c.color = 16777215 * Math.random()
     return c
   }
+  // deobfuscate from here
   function Sa() {
     if (!ha) {
       var a = new Date().getTime(),
@@ -391,27 +333,25 @@ var V = !1
           ((a = ka > 0.8 * D),
           !hb(l) || a ? la++ : (la = 0),
           30 < la && ((la = 0), ib()))
-        a = minStiffness + 0.75 * (maxStiffness - minStiffness)
-        stiffness = U && 0 == ba && w < a ? a : w
+        a = C + 0.75 * (M - C)
+        x = U && 0 == ba && w < a ? a : w
         xa = U && 0 == ba ? 0.94 : 1
         Ca()
-        someTrigFunction()
-        continuouslyCalledPhysicsFunction()
-        someTrigFunction()
-        continuouslyCalledPhysicsFunction()
-        for (a = D; a--; )
-          (S.c[a][0] = meshPoints[a].x), (S.c[a][1] = meshPoints[a].y)
+        jb()
+        kb()
+        jb()
+        kb()
+        for (a = D; a--; ) (S.c[a][0] = j[a].x), (S.c[a][1] = j[a].y)
         S.sa()
         u ||
           ((a = ''),
-          (a = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa),
+          (a = U ? Qa : ja && !aa ? Ra : pa),
           a != ya && ((ya = a), (document.body.style.cursor = ya)))
       }
       requestAnimFrame(Sa)
     }
   }
-
-  function someTrigFunction() {
+  function jb() {
     for (var a = y.length; a--; ) {
       var b = y[a],
         c = b.pa,
@@ -419,8 +359,8 @@ var V = !1
         e = d.x - c.x,
         f = d.y - c.y,
         h = lb(b.s + c.s),
-        J = (d.x - (c.x + Math.cos(h) * b.length * o)) * stiffness,
-        h = (d.y - (c.y + Math.sin(h) * b.length * o)) * stiffness,
+        J = (d.x - (c.x + Math.cos(h) * b.length * o)) * x,
+        h = (d.y - (c.y + Math.sin(h) * b.length * o)) * x,
         g = 0.5 * (Math.abs(J) + Math.abs(h)) > L
       u && U && (g = p)
       if (!c.q || g)
@@ -436,14 +376,10 @@ var V = !1
         (d.q = V), (d.j -= J), (d.k -= h), (d.x -= J * ma), (d.y -= h * ma)
     }
   }
-
-  function continuouslyCalledPhysicsFunction() {
-    // console.log("called continuouslyCalledPhysicsFunction()");
+  function kb() {
     ba = ka = 0
-
-    // console.log("j", meshPoints);
-    for (var a = meshPoints.length; a--; ) {
-      var b = meshPoints[a]
+    for (var a = j.length; a--; ) {
+      var b = j[a]
       if (b.Z) {
         var c = E - b.x,
           d = F - b.y,
@@ -496,7 +432,7 @@ var V = !1
   function ib() {
     setTimeout(
       function (a, b, c, d) {
-        stiffness = a
+        x = a
         t = b
         o = c
         I = d
@@ -504,16 +440,16 @@ var V = !1
         hb(l) || ib()
       },
       450,
-      stiffness,
+      x,
       t,
       o,
       I
     )
-    stiffness = 0.8 * maxStiffness
+    x = 0.8 * M
     t = 0
     o *= 1.05
     ua()
-    handler_orientationchange()
+    T()
     wa = p
     for (
       var a = bb(l),
@@ -541,11 +477,11 @@ var V = !1
     l[e].x = a.Qa
     l[e].y = a.Ra
   }
-  function handler_mousedown() {
+  function Wa() {
     if (ja && !aa) {
       U = p
-      for (var a, b = [], c = meshPoints.length; c--; ) {
-        a = meshPoints[c]
+      for (var a, b = [], c = j.length; c--; ) {
+        a = j[c]
         var d = E - a.x,
           e = F - a.y
         b[c] = { oa: a, ha: Math.sqrt(d * d + e * e) }
@@ -560,8 +496,7 @@ var V = !1
   }
   function ua() {
     if (U) {
-      for (var a = meshPoints.length; a--; )
-        (meshPoints[a].Z = V), (meshPoints[a].$ = V)
+      for (var a = j.length; a--; ) (j[a].Z = V), (j[a].$ = V)
       U = V
     }
   }
@@ -570,28 +505,24 @@ var V = !1
     E = a.clientX
     F = a.clientY
   }
-  function handler_orientationchange() {
+  function T() {
     u && 1 != document.body.scrollTop && window.scrollTo(0, 1)
     $ = window.innerWidth
     fa = window.innerHeight
-    for (var a = meshPoints.length; a--; ) meshPoints[a].q = V
-    canvasElement.width = $
-    canvasElement.height = fa
+    for (var a = j.length; a--; ) j[a].q = V
+    R.width = $
+    R.height = fa
   }
-  function handler_touchstart(a) {
-    console.log('called handler_touchStart()')
-    console.log('a', a)
+  function Ta(a) {
     1 == a.touches.length &&
       ((E = a.touches[0].pageX),
       (F = a.touches[0].pageY),
-      3 != a.target.nodeType &&
-        (a.preventDefault(), Y && (ja = ca()), handler_mousedown()))
+      3 != a.target.nodeType && (a.preventDefault(), Y && (ja = ca()), Wa()))
   }
-  function handler_touchend(a) {
-    console.log('called handler_touchEnd()')
+  function Ua(a) {
     3 != a.target.nodeType && (a.preventDefault(), ua())
   }
-  function handler_touchmove(a) {
+  function Va(a) {
     1 == a.touches.length &&
       (a.preventDefault(), (E = a.touches[0].pageX), (F = a.touches[0].pageY))
   }
@@ -652,10 +583,7 @@ var V = !1
     this.s = 0
     this.color = '#000'
   }
-
   function Ib() {
-    // console.log("called Ib()");
-    // console.log("Q", Q);
     Q
       ? setTimeout(function () {
           Ha(N)
@@ -665,11 +593,11 @@ var V = !1
       : (Ha(N),
         isNaN(parseFloat(localStorage.getItem('stickything.stickiness'))) ||
           ((t = parseFloat(localStorage.getItem('stickything.stickiness'))),
-          (t = Aa(t, W, maxStickiness)),
+          (t = Aa(t, W, qa)),
           (qb = V)),
         isNaN(parseFloat(localStorage.getItem('stickything.stiffness'))) ||
           ((w = parseFloat(localStorage.getItem('stickything.stiffness'))),
-          (w = Aa(w, minStiffness, maxStiffness))),
+          (w = Aa(w, C, M))),
         isNaN(parseFloat(localStorage.getItem('stickything.scale'))) ||
           ((o = parseFloat(localStorage.getItem('stickything.scale'))),
           (o = Aa(o, O, Z))),
@@ -684,30 +612,26 @@ var V = !1
         ob(),
         u ? pb.p() : Jb())
   }
-
   function Jb() {
     g.U(242, -1)
     g.P()
-    g.S = addOrRemoveMouseOverOutEventListener
-    getElementByIdWrapper('navContainer').style.display = 'block'
-    handler_orientationchange()
-    window.onresize = handler_orientationchange
+    g.S = Za
+    q('navContainer').style.display = 'block'
+    T()
+    window.onresize = T
     setTimeout(function () {
-      getElementByIdWrapper('stickyContainer').style.visibility = 'visible'
+      q('stickyContainer').style.visibility = 'visible'
       qb && sb()
       ga()
     }, 150)
   }
-
   function ob() {
-    console.log('called ob()')
     g = new Ga(document.body, { draggable: !u })
-    console.log('g', g)
     g.add(
       'stickiness',
       t,
       W,
-      maxStickiness,
+      qa,
       function (a) {
         t = a
       },
@@ -719,16 +643,15 @@ var V = !1
         localStorage.setItem('stickything.stickiness', a)
       }
     )
-    console.log('g', g)
     Q ||
       g.add(
         'stiffness',
         w,
-        minStiffness,
-        maxStiffness,
+        C,
+        M,
         function (a) {
           w = a
-          getElementByIdWrapper('out').innerHTML = '&nbsp;<br>'
+          q('out').innerHTML = '&nbsp;<br>'
         },
         this,
         1,
@@ -790,11 +713,7 @@ var V = !1
         )
     g.P()
   }
-
-  /**
-   * Something about removing the mouseover event listener
-   */
-  function addOrRemoveMouseOverOutEventListener(a) {
+  function Za(a) {
     g.w
       ? (g.a.removeEventListener('mouseover', na, V),
         g.a.removeEventListener('mouseout', na, V),
@@ -822,21 +741,18 @@ var V = !1
       0.65 > Math.abs(d) && clearInterval(Ba)
     }, 25)
   }
-
-  function getElementByIdWrapper(a) {
+  function q(a) {
     return document.getElementById(a)
   }
-  function outElementInitialize() {
-    getElementByIdWrapper('out').style.display = 'block'
+  function Lb() {
+    q('out').style.display = 'block'
     for (
       var a = arguments[arguments.length - 1], b = arguments.length - 1;
       b--;
 
-    ) {
+    )
       a = arguments[b] + ', ' + a
-      getElementByIdWrapper('out').innerHTML =
-        getElementByIdWrapper('out').innerHTML + '<br>' + a
-    }
+    q('out').innerHTML = q('out').innerHTML + '<br>' + a
   }
   var r = (function () {
       function a(a) {
@@ -933,8 +849,6 @@ var V = !1
       }
     })(),
     n = Fa.prototype
-
-  // n
   n.U = function (a) {
     this.width = a -= this.A.offsetWidth
     this.d.right = this.width - this.D
@@ -1221,10 +1135,6 @@ var V = !1
     }, 450)
   }
   delete n
-
-  console.log('n', n)
-
-  // X
   X.prototype.p = function (a, b, c, d) {
     this.h = d
     this.l = document.createElement('canvas')
@@ -1356,9 +1266,6 @@ var V = !1
       e > this.L && (this.L = e)
     }
   }
-  console.log('X', X)
-
-  // G
   G.prototype.p = function (a, b, c, d) {
     this.h = d
     this.l = document.createElement('canvas')
@@ -1528,16 +1435,14 @@ var V = !1
       if ('undefined' != typeof a.style[c]) return c
     return V
   }
-  console.log('G', G)
-
   var pb = (function () {
       function a(a) {
         a = a ? 'addEventListener' : 'removeEventListener'
         u[a]('touchend', d, V)
         s[a]('touchend', k, V)
       }
-      function setIconBarWidthHeight() {
-        getElementByIdWrapper('iconBar').style.width = window.innerWidth + 'px'
+      function b() {
+        q('iconBar').style.width = window.innerWidth + 'px'
         z.style.width = window.innerWidth + 'px'
         z.style.height = window.innerHeight + 1 + 'px'
       }
@@ -1628,11 +1533,10 @@ var V = !1
         }, 200)
       }
       function k() {
-        console.log('called k()')
         if (w == s) {
           w = { id: 'NULL' }
           c(s)
-          setIconBarWidthHeight()
+          b()
           g.w && e()
           ha = p
           m(V)
@@ -1675,17 +1579,14 @@ var V = !1
             x = V
           }, 300))
       }
-
       function m(a) {
         a
           ? document.addEventListener('touchstart', o, V)
           : document.removeEventListener('touchstart', o, V)
       }
-
       function o(a) {
         3 != a.target.nodeType && a.preventDefault()
       }
-
       var v = '',
         t = 280,
         u,
@@ -1694,23 +1595,22 @@ var V = !1
         x = V,
         w,
         y
-
       return {
         p: function () {
           if (Q) {
             var d = navigator.userAgent.split('Android ')[1],
               d = d.substring(0, d.indexOf(';'))
             if (2.2 > parseFloat(d)) {
-              outElementInitialize(
+              Lb(
                 '<br><br><div style="font-family:sans;font-size:20px;color:#666666;padding:0 10px">Hello,<br><br>Sorry but you need a newer Android version to run this, at least <strong>2.2</strong> (Froyo).<br><br>But you can still view this site on a desktop computer instead.</div>'
               )
               return
             }
             S.ca = 1.5
           }
-          var e = getElementByIdWrapper('iconBar')
+          var e = q('iconBar')
           e.style.display = 'block'
-          w = s = getElementByIdWrapper('infoBTN')
+          w = s = q('infoBTN')
           s.addEventListener(
             'touchstart',
             function () {
@@ -1719,7 +1619,7 @@ var V = !1
             },
             V
           )
-          u = getElementByIdWrapper('optionsBTN')
+          u = q('optionsBTN')
           u.addEventListener(
             'touchstart',
             function () {
@@ -1729,7 +1629,7 @@ var V = !1
           )
           m(p)
           a(p)
-          z = getElementByIdWrapper('aboutOverlay')
+          z = q('aboutOverlay')
           g.ua = V
           g.U(t, -1)
           ra && (v = 'TR')
@@ -1743,18 +1643,15 @@ var V = !1
               V
             )
           setTimeout(function () {
-            handler_orientationchange()
-            setIconBarWidthHeight()
+            T()
+            b()
           }, 100)
           setTimeout(
             function () {
-              Q &&
-                ((getElementByIdWrapper('out').style.height = '100%'),
-                handler_orientationchange())
-              window.onresize = handler_orientationchange
-              window.addEventListener('resize', setIconBarWidthHeight, V)
-              getElementByIdWrapper('stickyContainer').style.visibility =
-                'visible'
+              Q && ((q('out').style.height = '100%'), T())
+              window.onresize = T
+              window.addEventListener('resize', b, V)
+              q('stickyContainer').style.visibility = 'visible'
               ga()
             },
             P ? 150 : 1250
@@ -1771,7 +1668,7 @@ var V = !1
         },
       }
     })(),
-    canvasElement,
+    R,
     sa,
     S,
     E = 0,
@@ -1780,8 +1677,8 @@ var V = !1
     N,
     za = Math.PI,
     nb = 2 * za,
-    cursorHandURL = 'url(img/cursor-hand.png),auto',
-    cursorGrabURL = 'url(img/cursor-grab.png),auto',
+    Ra = 'url(img/cursor-hand.png),auto',
+    Qa = 'url(img/cursor-grab.png),auto',
     pa = 'default',
     ya = pa,
     ma = 0.5,
@@ -1796,17 +1693,17 @@ var V = !1
     t = 12,
     L,
     W = 0,
-    maxStickiness = 24,
-    stiffness = 0.07,
-    minStiffness = 0.045,
-    maxStiffness = 0.2,
-    w = stiffness,
+    qa = 24,
+    x = 0.07,
+    C = 0.045,
+    M = 0.2,
+    w = x,
     qb = p,
     ea = -4,
     K = 60,
     $ = window.innerWidth,
     fa = window.innerHeight,
-    meshPoints = [],
+    j = [],
     l = [],
     Ab = [],
     y = [],
@@ -1831,12 +1728,9 @@ var V = !1
     U = V,
     wa = V,
     tb = -1 != document.location.href.indexOf('http'),
-    userAgent = navigator.userAgent,
-    P =
-      userAgent.match(/iPhone/i) ||
-      userAgent.match(/iPod/i) ||
-      userAgent.match(/iPad/i),
-    Q = /Android/.test(userAgent),
+    da = navigator.userAgent,
+    P = da.match(/iPhone/i) || da.match(/iPod/i) || da.match(/iPad/i),
+    Q = /Android/.test(da),
     u = 'ontouchend' in document,
     ra = u && 740 < window.innerWidth && 520 < window.innerHeight,
     Y = p,
@@ -1851,26 +1745,19 @@ var V = !1
     Ka = rb - 130,
     Ya = !ra,
     ia = 0.875
-
   Da = P
   Ea = P
-
-  var $a = 0
-  var xa = 1
-
+  var $a = 0,
+    xa = 1
   requestAnimFrame = (function () {
     return function (a) {
       window.setTimeout(a, 15)
     }
   })()
-
-  console.log('pb', pb)
-
   window.onload = function () {
-    getElementByIdWrapper('stickyContainer').style.visibility = 'hidden'
+    q('stickyContainer').style.visibility = 'hidden'
     N = new Image()
     N.onload = Ib
-    N.src = 'img/alain-passard-radish.jpeg'
-    console.log('N', N)
+    N.src = 'img/gooey-pink-02_small-02.png'
   }
 })()
