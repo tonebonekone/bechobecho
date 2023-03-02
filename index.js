@@ -5,10 +5,7 @@ var global_V = !1
 
 ;(function () {
   function Ca() {
-    L =
-      t *
-      (0.105 +
-        0.895 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
+    L = t * (0.105 + 0.895 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
     L < W && (L = W)
   }
 
@@ -16,16 +13,16 @@ var global_V = !1
   var Ea
 
   function Fa(arg) {
-    console.log('Fa(arg)')
-    console.log('   arg', arg)
-    console.log('   this', this)
+    // console.log('Fa(arg)')
+    // console.log('   arg', arg)
+    // console.log('   this', this)
     this.p(arg)
   }
 
   function init_slider(body, draggableObject) {
-    console.log('init_slider(body,draggableObject)')
-    console.log('    body', body)
-    console.log('    draggableObject', draggableObject)
+    // console.log('init_slider(body,draggableObject)')
+    // console.log('    body', body)
+    // console.log('    draggableObject', draggableObject)
     this.V = []
     this.height = 32
     this.el_sliderBoard
@@ -38,9 +35,6 @@ var global_V = !1
     this.K = -1
     this.ua = global_p
     this.p(draggableObject || {})
-    console.log('   this.O', this.O)
-    console.log('   this.sliderThumbHit', this.sliderThumbHit)
-    console.log('   this.ua', this.ua)
     body.appendChild(this.el_sliderBoard)
   }
 
@@ -77,8 +71,7 @@ var global_V = !1
 
   function Ha(arg) {
     el_image = arg
-    1300 > window.innerWidth &&
-      (o = 0.65 + 0.35 * ((window.innerWidth - 950) / 350))
+    1300 > window.innerWidth && (o = 0.65 + 0.35 * ((window.innerWidth - 950) / 350))
     800 > window.innerWidth && (o = O)
     Y = !P
     ca = userAgent.match(/Firefox/i) ? oa : Y ? (tb ? ub : oa) : vb
@@ -87,8 +80,7 @@ var global_V = !1
     Q &&
       ((document.body.style.overflow = 'visible'),
       (getElementByIdWrapper('out').style.display = 'block'),
-      (getElementByIdWrapper('out').style.height =
-        window.outerHeight + 100 + 'px'),
+      (getElementByIdWrapper('out').style.height = window.outerHeight + 100 + 'px'),
       (getElementByIdWrapper('stickyContainer').style.visibility = 'visible'),
       (Y = global_p),
       (ca = oa),
@@ -108,26 +100,13 @@ var global_V = !1
       f.y = b * e + Na
       f.fa = d
       f.ta = e
-      if (0 == d || d == v - 1 || 0 == e || e == s - 1)
-        (f.ja = global_p), Ab.push(f)
+      if (0 == d || d == v - 1 || 0 == e || e == s - 1) (f.ja = global_p), Ab.push(f)
       meshPoints[c] = f
       var h
-      e < s - 1 &&
-        ((h = meshPoints[Math.floor((e + 1) * v + d)]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
-      e < s - 2 &&
-        ((h = meshPoints[Math.floor((e + 2) * v + d)]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
-      d < s - 1 &&
-        ((h = meshPoints[Math.floor(e * v + (d + 1))]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
-      d < s - 2 &&
-        ((h = meshPoints[Math.floor(e * v + (d + 2))]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
+      e < s - 1 && ((h = meshPoints[Math.floor((e + 1) * v + d)]), y.push(H(f, h)), y.push(H(h, f)))
+      e < s - 2 && ((h = meshPoints[Math.floor((e + 2) * v + d)]), y.push(H(f, h)), y.push(H(h, f)))
+      d < s - 1 && ((h = meshPoints[Math.floor(e * v + (d + 1))]), y.push(H(f, h)), y.push(H(h, f)))
+      d < s - 2 && ((h = meshPoints[Math.floor(e * v + (d + 2))]), y.push(H(f, h)), y.push(H(h, f)))
     }
 
     D = meshPoints.length
@@ -136,16 +115,15 @@ var global_V = !1
     l.push(meshPoints[v - 1])
     l.push(meshPoints[D - 1])
     l.push(meshPoints[D - v])
-    Bb()
+    init_bigCanvas()
     addEventListeners()
     Pa = global_V
   }
 
   function wb() {
     console.log('wb()')
-    console.log(' cursorGrabURL', cursorGrabURL)
     cursorGrabURL = cursorHandURL = pa
-    console.log(' pa', pa)
+    console.log('   pa', pa)
     ea = -2
     v = s = 5
     stiffness = 0.07
@@ -155,14 +133,9 @@ var global_V = !1
     maxStickiness = 10
     Na = Ma = 0
     I = 0.5
-    ra
-      ? ((o = 0.77), (Z *= 0.9), (O *= 0.75))
-      : ((o = 0.35), (O = 0.225), (Z = 0.85))
+    ra ? ((o = 0.77), (Z *= 0.9), (O *= 0.75)) : ((o = 0.35), (O = 0.225), (Z = 0.85))
     Ca = function () {
-      L =
-        t *
-        (0.35 +
-          0.65 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
+      L = t * (0.35 + 0.65 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
       L < W && (L = W)
     }
     setTimeout(
@@ -170,24 +143,14 @@ var global_V = !1
         ? function () {
             for (var a = D; a--; ) {
               var b = meshPoints[a]
-              b.x = 0.5 * $
-              b.y = 0.35 * fa
+              b.x = 0.5 * windowInnerWidth
+              b.y = 0.35 * windowInnerHeight
               b.i = 0
               b.f = 0
             }
           }
         : function () {
-            for (
-              var a = window.innerWidth < window.innerHeight,
-                b =
-                  0.9 * ((a ? window.innerWidth : window.innerHeight) / 3 / s),
-                a = a ? 8 : 3,
-                c = 0.5 * ($ - 3 * b),
-                d = 0.5 * (fa - 3 * b),
-                e = D;
-              e--;
-
-            ) {
+            for (var a = window.innerWidth < window.innerHeight, b = 0.9 * ((a ? window.innerWidth : window.innerHeight) / 3 / s), a = a ? 8 : 3, c = 0.5 * (windowInnerWidth - 3 * b), d = 0.5 * (windowInnerHeight - 3 * b), e = D; e--; ) {
               var f = meshPoints[e]
               f.x = c + b * f.fa
               f.y = d + b * f.ta
@@ -209,11 +172,13 @@ var global_V = !1
 
   function ga() {
     console.log('ga()')
+    console.log('   this will call Sa()')
     ha = global_V
     Sa()
   }
 
-  function Bb() {
+  function init_bigCanvas() {
+    console.log('init_bigCanvas()')
     el_canvas = getElementByIdWrapper('bigCanvas')
     drawingContext = el_canvas.getContext('2d')
     var el_stickyContainer = getElementByIdWrapper('stickyContainer')
@@ -245,28 +210,10 @@ var global_V = !1
 
     u
       ? Y
-        ? (el_canvas.addEventListener(
-            'touchstart',
-            handler_touchstart,
-            global_V
-          ),
-          el_canvas.addEventListener('touchend', handler_touchend, global_V),
-          el_canvas.addEventListener('touchmove', handler_touchmove, global_V))
-        : (getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchstart',
-            handler_touchstart,
-            global_V
-          ),
-          getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchend',
-            handler_touchend,
-            global_V
-          ),
-          getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchmove',
-            handler_touchmove,
-            global_V
-          ),
+        ? (el_canvas.addEventListener('touchstart', handler_touchstart, global_V), el_canvas.addEventListener('touchend', handler_touchend, global_V), el_canvas.addEventListener('touchmove', handler_touchmove, global_V))
+        : (getElementByIdWrapper('stickyContainer').addEventListener('touchstart', handler_touchstart, global_V),
+          getElementByIdWrapper('stickyContainer').addEventListener('touchend', handler_touchend, global_V),
+          getElementByIdWrapper('stickyContainer').addEventListener('touchmove', handler_touchmove, global_V),
           document.addEventListener(
             'touchmove',
             function (a) {
@@ -274,9 +221,7 @@ var global_V = !1
             },
             global_V
           ))
-      : (document.addEventListener('mousedown', handler_mousedown, global_V),
-        document.addEventListener('mouseup', meshes_something, global_V),
-        document.addEventListener('mousemove', Db, global_V))
+      : (document.addEventListener('mousedown', handler_mousedown, global_V), document.addEventListener('mouseup', meshes_something, global_V), document.addEventListener('mousemove', Db, global_V))
 
     document.addEventListener(
       'gesturestart',
@@ -289,10 +234,11 @@ var global_V = !1
     document.addEventListener(
       'gesturechange',
       function (event) {
-        if (!Ya || !g.w)
-          event.preventDefault(),
-            (o = Xa + 0.415 * (event.scale - 1)),
-            (o = Math.min(Z, Math.max(o, O)))
+        if (!Ya || !g.w) {
+          event.preventDefault()
+          o = Xa + 0.415 * (event.scale - 1)
+          o = Math.min(Z, Math.max(o, O))
+        }
       },
       global_V
     )
@@ -305,9 +251,7 @@ var global_V = !1
       global_V
     )
     window.addEventListener('devicemotion', handler_devicemotion, global_V)
-    document
-      .getElementById('options')
-      .addEventListener('click', addOrRemoveMouseOverOutEventListener, global_V)
+    document.getElementById('options').addEventListener('click', addOrRemoveMouseOverOutEventListener, global_V)
     if (!u)
       for (var a = document.getElementsByTagName('a'), b = 0; b < a.length; b++)
         a[b].addEventListener(
@@ -327,11 +271,7 @@ var global_V = !1
     document.onselectstart = function () {
       return global_V
     }
-    document.body.addEventListener(
-      'orientationchange',
-      handler_orientationchange,
-      global_V
-    )
+    document.body.addEventListener('orientationchange', handler_orientationchange, global_V)
   }
 
   function handler_devicemotion(arg) {
@@ -369,12 +309,7 @@ var global_V = !1
 
   function oa() {
     var a = bb(l)
-    return (
-      E > a.x - 2 &&
-      E < a.x + a.width + 2 &&
-      F > a.y - 2 &&
-      F < a.y + a.height + 2
-    )
+    return E > a.x - 2 && E < a.x + a.width + 2 && F > a.y - 2 && F < a.y + a.height + 2
   }
   function vb() {
     return ta
@@ -403,16 +338,9 @@ var global_V = !1
         va = global_p
       } else {
         va = global_V
-        Pa &&
-          ((db = window.screenX - eb),
-          (fb = window.screenY - gb),
-          (eb = window.screenX),
-          (gb = window.screenY))
+        Pa && ((db = window.screenX - eb), (fb = window.screenY - gb), (eb = window.screenX), (gb = window.screenY))
         ja = ca()
-        wa ||
-          ((currentTime = ka > 0.8 * D),
-          !hb(l) || currentTime ? la++ : (la = 0),
-          30 < la && ((la = 0), ib()))
+        wa || ((currentTime = ka > 0.8 * D), !hb(l) || currentTime ? la++ : (la = 0), 30 < la && ((la = 0), ib()))
         currentTime = minStiffness + 0.75 * (maxStiffness - minStiffness)
         stiffness = U && 0 == ba && w < currentTime ? currentTime : w
         xa = U && 0 == ba ? 0.94 : 1
@@ -422,15 +350,9 @@ var global_V = !1
         continuouslyCalledPhysicsFunction()
         someTrigFunction()
         continuouslyCalledPhysicsFunction()
-        for (currentTime = D; currentTime--; )
-          (S.c[currentTime][0] = meshPoints[currentTime].x),
-            (S.c[currentTime][1] = meshPoints[currentTime].y)
+        for (currentTime = D; currentTime--; ) (S.c[currentTime][0] = meshPoints[currentTime].x), (S.c[currentTime][1] = meshPoints[currentTime].y)
         S.sa()
-        u ||
-          ((currentTime = ''),
-          (currentTime = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa),
-          currentTime != ya &&
-            ((ya = currentTime), (document.body.style.cursor = ya)))
+        u || ((currentTime = ''), (currentTime = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa), currentTime != ya && ((ya = currentTime), (document.body.style.cursor = ya)))
       }
       requestAnimFrame(Sa)
     }
@@ -448,21 +370,8 @@ var global_V = !1
         h = (d.y - (c.y + Math.sin(h) * b.length * o)) * stiffness,
         g = 0.5 * (Math.abs(J) + Math.abs(h)) > L
       u && U && (g = global_p)
-      if (!c.q || g)
-        (e = Math.atan2(f, e)),
-          (c.q = global_V),
-          (c.j += J),
-          (c.k += h),
-          (c.x += J * ma),
-          (c.y += h * ma),
-          (c.G += lb(e - (b.s + c.s)) * Ia),
-          (c.s += c.G)
-      if (!d.q || g)
-        (d.q = global_V),
-          (d.j -= J),
-          (d.k -= h),
-          (d.x -= J * ma),
-          (d.y -= h * ma)
+      if (!c.q || g) (e = Math.atan2(f, e)), (c.q = global_V), (c.j += J), (c.k += h), (c.x += J * ma), (c.y += h * ma), (c.G += lb(e - (b.s + c.s)) * Ia), (c.s += c.G)
+      if (!d.q || g) (d.q = global_V), (d.j -= J), (d.k -= h), (d.x -= J * ma), (d.y -= h * ma)
     }
   }
 
@@ -507,17 +416,15 @@ var global_V = !1
         d = b.y + b.f,
         f = (e = global_V),
         h = ea,
-        J = $ - ea,
+        J = windowInnerWidth - ea,
         g = ea,
-        k = fa - ea
+        k = windowInnerHeight - ea
       c > J && ((e = global_p), (c = J))
       c < h && ((e = global_p), (c = h))
       d > k && ((f = global_p), (d = k))
       d < g && ((f = global_p), (d = g))
       ;(e || f) && ka++
-      ;(h = (e || f) && ba < 0.25 * D)
-        ? ((b.i = 0), (b.f = 0), (b.G = 0), e && (b.x = c), f && (b.y = d))
-        : ((b.x = c), (b.y = d))
+      ;(h = (e || f) && ba < 0.25 * D) ? ((b.i = 0), (b.f = 0), (b.G = 0), e && (b.x = c), f && (b.y = d)) : ((b.x = c), (b.y = d))
       b.q = h
     }
   }
@@ -544,16 +451,7 @@ var global_V = !1
     meshes_something()
     handler_orientationchange()
     wa = global_p
-    for (
-      var a = bb(l),
-        b = a.x + 0.5 * a.width,
-        c = a.y + 0.5 * a.height,
-        d = Number.MAX_VALUE,
-        e,
-        f = l.length;
-      f--;
-
-    ) {
+    for (var a = bb(l), b = a.x + 0.5 * a.width, c = a.y + 0.5 * a.height, d = Number.MAX_VALUE, e, f = l.length; f--; ) {
       var h = l[f],
         a = h.x - b,
         h = h.y - c,
@@ -570,6 +468,7 @@ var global_V = !1
     l[e].x = a.Qa
     l[e].y = a.Ra
   }
+
   function handler_mousedown() {
     if (ja && !aa) {
       U = global_p
@@ -583,49 +482,46 @@ var global_V = !1
       a = b[0].oa
       a.$ = global_p
       d = a.ja ? 5 : 9
-      for (c = -1; ++c < d; )
-        (a = b[c].oa), (a.Z = global_p), (a.Ta = E - a.x), (a.Ua = F - a.y)
+      for (c = -1; ++c < d; ) (a = b[c].oa), (a.Z = global_p), (a.Ta = E - a.x), (a.Ua = F - a.y)
     }
   }
+
   function meshes_something() {
     if (U) {
-      for (var a = meshPoints.length; a--; )
-        (meshPoints[a].Z = global_V), (meshPoints[a].$ = global_V)
+      for (var a = meshPoints.length; a--; ) (meshPoints[a].Z = global_V), (meshPoints[a].$ = global_V)
       U = global_V
     }
   }
+
   function Db(arg) {
     arg = arg ? arg : window.event
     E = arg.clientX
     F = arg.clientY
   }
+
   function handler_orientationchange() {
     u && 1 != document.body.scrollTop && window.scrollTo(0, 1)
-    $ = window.innerWidth
-    fa = window.innerHeight
+    windowInnerWidth = window.innerWidth
+    windowInnerHeight = window.innerHeight
     for (var a = meshPoints.length; a--; ) meshPoints[a].q = global_V
-    el_canvas.width = $
-    el_canvas.height = fa
+    el_canvas.width = windowInnerWidth
+    el_canvas.height = windowInnerHeight
   }
 
   function handler_touchstart(event) {
     console.log('handler_touchStart()')
-    1 == event.touches.length &&
-      ((E = event.touches[0].pageX),
-      (F = event.touches[0].pageY),
-      3 != event.target.nodeType &&
-        (event.preventDefault(), Y && (ja = ca()), handler_mousedown()))
+    1 == event.touches.length && ((E = event.touches[0].pageX), (F = event.touches[0].pageY), 3 != event.target.nodeType && (event.preventDefault(), Y && (ja = ca()), handler_mousedown()))
   }
+
   function handler_touchend(event) {
     console.log('handler_touchEnd()')
     3 != event.target.nodeType && (event.preventDefault(), meshes_something())
   }
+
   function handler_touchmove(event) {
-    1 == event.touches.length &&
-      (event.preventDefault(),
-      (E = event.touches[0].pageX),
-      (F = event.touches[0].pageY))
+    1 == event.touches.length && (event.preventDefault(), (E = event.touches[0].pageX), (F = event.touches[0].pageY))
   }
+
   function bb(a) {
     for (var b = 1e5, c = -1e5, d = 1e5, e = -1e5, f = a.length; f--; ) {
       var h = a[f]
@@ -640,8 +536,8 @@ var global_V = !1
     return a.ha - b.ha
   }
   function lb(a) {
-    for (; a > za; ) a -= nb
-    for (; a < -za; ) a += nb
+    for (; a > pi; ) a -= tau
+    for (; a < -pi; ) a += tau
     return a
   }
   function hb(a) {
@@ -649,12 +545,7 @@ var global_V = !1
       var e = 0 == d ? c - 1 : d - 1,
         f = d,
         h = d == c - 1 ? 0 : d + 1,
-        e =
-          0 <
-          (a[f].x - a[e].x) * (a[h].y - a[f].y) -
-            (a[h].x - a[f].x) * (a[f].y - a[e].y)
-            ? global_p
-            : global_V
+        e = 0 < (a[f].x - a[e].x) * (a[h].y - a[f].y) - (a[h].x - a[f].x) * (a[f].y - a[e].y) ? global_p : global_V
       if (0 == d) b = e
       else if (b != e) return global_V
     }
@@ -695,24 +586,11 @@ var global_V = !1
           pb.p()
         }, 750)
       : (Ha(el_image),
-        isNaN(parseFloat(localStorage.getItem('stickything.stickiness'))) ||
-          ((t = parseFloat(localStorage.getItem('stickything.stickiness'))),
-          (t = Aa(t, W, maxStickiness)),
-          (qb = global_V)),
-        isNaN(parseFloat(localStorage.getItem('stickything.stiffness'))) ||
-          ((w = parseFloat(localStorage.getItem('stickything.stiffness'))),
-          (w = Aa(w, minStiffness, maxStiffness))),
-        isNaN(parseFloat(localStorage.getItem('stickything.scale'))) ||
-          ((o = parseFloat(localStorage.getItem('stickything.scale'))),
-          (o = Aa(o, O, Z))),
-        isNaN(parseFloat(localStorage.getItem('stickything.gravityY'))) ||
-          (I = parseFloat(localStorage.getItem('stickything.gravityY'))),
-        isNaN(
-          parseFloat(localStorage.getItem('stickything.accelerometerFactor'))
-        ) ||
-          (ia = parseFloat(
-            localStorage.getItem('stickything.accelerometerFactor')
-          )),
+        isNaN(parseFloat(localStorage.getItem('stickything.stickiness'))) || ((t = parseFloat(localStorage.getItem('stickything.stickiness'))), (t = Aa(t, W, maxStickiness)), (qb = global_V)),
+        isNaN(parseFloat(localStorage.getItem('stickything.stiffness'))) || ((w = parseFloat(localStorage.getItem('stickything.stiffness'))), (w = Aa(w, minStiffness, maxStiffness))),
+        isNaN(parseFloat(localStorage.getItem('stickything.scale'))) || ((o = parseFloat(localStorage.getItem('stickything.scale'))), (o = Aa(o, O, Z))),
+        isNaN(parseFloat(localStorage.getItem('stickything.gravityY'))) || (I = parseFloat(localStorage.getItem('stickything.gravityY'))),
+        isNaN(parseFloat(localStorage.getItem('stickything.accelerometerFactor'))) || (ia = parseFloat(localStorage.getItem('stickything.accelerometerFactor'))),
         ob(),
         u ? pb.p() : Jb())
   }
@@ -829,13 +707,8 @@ var global_V = !1
    */
   function addOrRemoveMouseOverOutEventListener(arg) {
     g.w
-      ? (g.el_sliderBoard.removeEventListener('mouseover', na, global_V),
-        g.el_sliderBoard.removeEventListener('mouseout', na, global_V),
-        arg && g.X(),
-        (aa = global_V))
-      : (g.el_sliderBoard.addEventListener('mouseover', na, global_V),
-        g.el_sliderBoard.addEventListener('mouseout', na, global_V),
-        Kb())
+      ? (g.el_sliderBoard.removeEventListener('mouseover', na, global_V), g.el_sliderBoard.removeEventListener('mouseout', na, global_V), arg && g.X(), (aa = global_V))
+      : (g.el_sliderBoard.addEventListener('mouseover', na, global_V), g.el_sliderBoard.addEventListener('mouseout', na, global_V), Kb())
   }
   function na(a) {
     aa = 'mouseover' == a.type ? global_p : global_V
@@ -851,8 +724,7 @@ var global_V = !1
       var c = r.v(g.el_sliderBoard).y,
         d = 0.35 * (b - c)
       r.o(g.el_sliderBoard, a, c + d)
-      g.el_sliderBoard.style.opacity =
-        parseFloat(g.el_sliderBoard.style.opacity) + 0.125
+      g.el_sliderBoard.style.opacity = parseFloat(g.el_sliderBoard.style.opacity) + 0.125
       0.65 > Math.abs(d) && clearInterval(Ba)
     }, 25)
   }
@@ -863,14 +735,9 @@ var global_V = !1
 
   function init_el_out() {
     getElementByIdWrapper('out').style.display = 'block'
-    for (
-      var a = arguments[arguments.length - 1], b = arguments.length - 1;
-      b--;
-
-    ) {
+    for (var a = arguments[arguments.length - 1], b = arguments.length - 1; b--; ) {
       a = arguments[b] + ', ' + a
-      getElementByIdWrapper('out').innerHTML =
-        getElementByIdWrapper('out').innerHTML + '<br>' + a
+      getElementByIdWrapper('out').innerHTML = getElementByIdWrapper('out').innerHTML + '<br>' + a
     }
   }
   var r = (function () {
@@ -891,9 +758,7 @@ var global_V = !1
       }
       function d(a) {
         var c
-        a.touches && a.touches.length
-          ? ((c = a.touches[0].clientX), (a = a.touches[0].clientY))
-          : ((c = a.clientX), (a = a.clientY))
+        a.touches && a.touches.length ? ((c = a.touches[0].clientX), (a = a.touches[0].clientY)) : ((c = a.clientX), (a = a.clientY))
         c = b(e.element, c, a)
         return [c.x, c.y]
       }
@@ -920,8 +785,7 @@ var global_V = !1
       return global_V
     }
     function b(a, b, c) {
-      for (a = a.parentElement; a; )
-        (b -= a.offsetLeft), (c -= a.offsetTop), (a = a.parentElement)
+      for (a = a.parentElement; a; ) (b -= a.offsetLeft), (c -= a.offsetTop), (a = a.parentElement)
       return { x: b, y: c }
     }
     function c(a, b, c) {
@@ -944,12 +808,8 @@ var global_V = !1
       g = {},
       B,
       k
-    navigator.userAgent.match(/iPhone/i) ||
-      navigator.userAgent.match(/iPod/i) ||
-      navigator.userAgent.match(/iPad/i)
-    ;/AppleWebKit/.test(navigator.userAgent)
-      ? ((B = e), (k = f))
-      : ((B = c), (k = d))
+    navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i)
+    ;/AppleWebKit/.test(navigator.userAgent) ? ((B = e), (k = f)) : ((B = c), (k = d))
     return {
       ka: function (b) {
         b.handle || (b.handle = b.element)
@@ -971,14 +831,15 @@ var global_V = !1
   })()
 
   // SLIDER CONTROLS
-  console.log('=============================================')
-  console.log('START SLIDER CONTROLS')
-  console.log('Fa', Fa)
-  console.log('Fa.prototype', Fa.prototype)
+  console.log('==========================================================================================')
 
-  var SLIDER_CONTROLS = Fa.prototype
+  console.log('assign sliders to Fa.prototype')
+  // console.log('   Fa', Fa)
+  console.log('   Fa.prototype', Fa.prototype)
+  var sliders = Fa.prototype
+  console.log('   SLIDER_CONTROLS BEFORE CREATING NEW METHODS', sliders)
 
-  SLIDER_CONTROLS.U = function (a) {
+  sliders.U = function (a) {
     this.sliderThumbHitidth = a -= this.A.offsetWidth
     this.d.right = this.sliderThumbHitidth - this.D
     this.F.style.width = this.sliderThumbHitidth + 'px'
@@ -986,7 +847,7 @@ var global_V = !1
     a = this.map(this.value, this.R, this.Q, this.d.left, this.d.right)
     r.o(this.g, a, 0)
   }
-  SLIDER_CONTROLS.p = function (arg) {
+  sliders.p = function (arg) {
     this.za()
     this.Ka = arg.Ca !== global_i ? arg.Ca : 1
     this.id = arg.id
@@ -1033,9 +894,9 @@ var global_V = !1
     }, 0)
   }
 
-  SLIDER_CONTROLS.za = function () {
-    console.log('calling n.za()')
-    console.log(' what is this', this)
+  sliders.za = function () {
+    console.log('n.za()')
+    console.log('   this', this)
     this.el_sliderBoard = document.createElement('div')
     this.el_sliderBoard.className = 'sliderContainer'
     this.g = document.createElement('div')
@@ -1056,7 +917,7 @@ var global_V = !1
     this.el_sliderBoard.appendChild(this.A)
   }
 
-  SLIDER_CONTROLS.va = function (a) {
+  sliders.va = function (a) {
     if (a != this.value) {
       var b = this.map(a, this.R, this.Q, this.d.left, this.d.right)
       r.o(this.g, b, 0)
@@ -1066,35 +927,27 @@ var global_V = !1
       this.ba(this.value, this.Y, this)
     }
   }
-  SLIDER_CONTROLS.Va = function () {
+  sliders.Va = function () {
     return this.value
   }
-  SLIDER_CONTROLS.J = function (a, b) {
+  sliders.J = function (a, b) {
     this.va(this.map(b, this.d.left, this.d.right, this.R, this.Q))
   }
-  SLIDER_CONTROLS.T = function () {
+  sliders.T = function () {
     this.g.className = 'sliderThumbActive'
     this.F.className = 'sliderTrackActive'
     this.d.right = this.sliderThumbHitidth - this.g.offsetWidth
   }
-  SLIDER_CONTROLS.r = function () {
+  sliders.r = function () {
     this.g.className = 'sliderThumb'
     this.F.className = 'sliderTrack'
     this.La.apply(global_A, [this.value, this.Y])
   }
-  SLIDER_CONTROLS.Xa = function () {}
-  SLIDER_CONTROLS.Oa = function (a) {
+  sliders.Xa = function () {}
+  sliders.Oa = function (a) {
     var b = a ? a : window.event,
-      c = r.v(
-        this.el_sliderBoard.parentElement
-          ? this.el_sliderBoard.parentElement.parentElement
-          : this.el_sliderBoard.parentNode.parentNode
-      ),
-      c =
-        ('mousedown' == a.type ? a.pageX : a.touches[0].pageX) -
-        c.x -
-        20 -
-        0.5 * this.D
+      c = r.v(this.el_sliderBoard.parentElement ? this.el_sliderBoard.parentElement.parentElement : this.el_sliderBoard.parentNode.parentNode),
+      c = ('mousedown' == a.type ? a.pageX : a.touches[0].pageX) - c.x - 20 - 0.5 * this.D
     c < this.d.left && (c = this.d.left)
     c > this.d.right && (c = this.d.right)
     var d = r.v(this.g)
@@ -1105,7 +958,7 @@ var global_V = !1
       this.sliderThumbHit.dispatchEvent(a)
     } catch (e) {}
   }
-  SLIDER_CONTROLS.Ma = function () {
+  sliders.Ma = function () {
     var a = this
     this.F.addEventListener(
       'mousedown',
@@ -1115,16 +968,16 @@ var global_V = !1
       global_V
     )
   }
-  SLIDER_CONTROLS.map = function (a, b, c, d, e) {
+  sliders.map = function (a, b, c, d, e) {
     a = d + ((a - b) / (c - b)) * (e - d)
     a > e ? (a = e) : a < d && (a = d)
     return a
   }
-  SLIDER_CONTROLS.toString = function () {
+  sliders.toString = function () {
     return '[Slider]'
   }
-  SLIDER_CONTROLS = init_slider.prototype
-  SLIDER_CONTROLS.p = function (a) {
+  sliders = init_slider.prototype
+  sliders.p = function (a) {
     this.ya()
     if (a.draggable) {
       this.O = {
@@ -1151,7 +1004,7 @@ var global_V = !1
       )
     }
   }
-  SLIDER_CONTROLS.add = function (a, b, c, d, e, f, h, g, B) {
+  sliders.add = function (a, b, c, d, e, f, h, g, B) {
     var k = document.createElement('div')
     k.className = 'sliderItem'
     this.el_sliderBoard.appendChild(k)
@@ -1173,13 +1026,12 @@ var global_V = !1
     a = new Fa(m)
     this.V.push({ scope: f, Na: a })
   }
-  SLIDER_CONTROLS.U = function (a, b) {
+  sliders.U = function (a, b) {
     for (var c = a - 40, d = this.V.length; d--; ) this.V[d].Na.U(c, b)
     this.el_sliderBoard.style.width = a + 'px'
-    this.el_sliderBoardCloseButton.style.left =
-      a - this.el_sliderBoardCloseButtonIcon.offsetWidth - 12 + 'px'
+    this.el_sliderBoardCloseButton.style.left = a - this.el_sliderBoardCloseButtonIcon.offsetWidth - 12 + 'px'
   }
-  SLIDER_CONTROLS.ya = function () {
+  sliders.ya = function () {
     this.el_sliderBoard = document.createElement('div')
     this.el_sliderBoard.className = 'sliderBoard'
     this.el_sliderBoardBG = document.createElement('div')
@@ -1209,42 +1061,36 @@ var global_V = !1
     this.el_sliderBoardCloseButtonIcon = document.createElement('div')
     this.el_sliderBoardCloseButtonIcon.innerHTML = '\u2715'
     this.el_sliderBoardCloseButtonIcon.className = 'sliderBoardCloseButtonIcon'
-    this.el_sliderBoardCloseButton.appendChild(
-      this.el_sliderBoardCloseButtonIcon
-    )
+    this.el_sliderBoardCloseButton.appendChild(this.el_sliderBoardCloseButtonIcon)
     this.el_sliderBoard.appendChild(this.el_sliderBoardBG)
     this.el_sliderBoard.appendChild(this.el_sliderBoardTitleBar)
     this.el_sliderBoard.appendChild(this.el_sliderBoardCloseButton)
   }
-  SLIDER_CONTROLS.move = function (a, b) {
+  sliders.move = function (a, b) {
     r.o(this.el_sliderBoard, a, b)
   }
-  SLIDER_CONTROLS.ga = function () {
+  sliders.ga = function () {
     var a = window.innerWidth - this.el_sliderBoardBG.offsetWidth,
       b = window.innerHeight - this.el_sliderBoardBG.offsetHeight
     0 > a && (a = 0)
     0 > b && (b = 0)
     var c = r.v(this.el_sliderBoard)
-    c.x > a && c.y > b
-      ? r.o(this.el_sliderBoard, a, b)
-      : c.x > a
-      ? r.o(this.el_sliderBoard, a, c.y)
-      : c.y > b && r.o(this.el_sliderBoard, c.x, b)
+    c.x > a && c.y > b ? r.o(this.el_sliderBoard, a, b) : c.x > a ? r.o(this.el_sliderBoard, a, c.y) : c.y > b && r.o(this.el_sliderBoard, c.x, b)
     this.O.d.right = a
     this.O.d.bottom = b
   }
-  SLIDER_CONTROLS.show = function () {
+  sliders.show = function () {
     this.el_sliderBoard.style.visibility = 'visible'
     this.sliderThumbHit = global_p
     clearInterval(this.K)
   }
-  SLIDER_CONTROLS.P = function () {
+  sliders.P = function () {
     this.el_sliderBoard.style.visibility = 'hidden'
     this.sliderThumbHit = global_V
     clearInterval(this.K)
   }
 
-  SLIDER_CONTROLS.X = function () {
+  sliders.X = function () {
     console.log('close?')
     this.S && this.S.apply(global_A)
     if (this.ua) {
@@ -1266,7 +1112,7 @@ var global_V = !1
       )
     }
   }
-  SLIDER_CONTROLS.xa = function () {
+  sliders.xa = function () {
     this.el_sliderBoardCloseButtonIcon.style.color = '#CCCCCC'
     var a = this.el_sliderBoardCloseButtonIcon.style
     setTimeout(function () {
@@ -1277,17 +1123,13 @@ var global_V = !1
       a.WebkitTransition = ''
     }, 450)
   }
-  delete SLIDER_CONTROLS
+  delete sliders
 
-  console.log('SLIDER_CONTROLS', SLIDER_CONTROLS)
+  console.log('   SLIDER_CONTROLS AFTER CREATING NEW METHODS', sliders)
 
-  console.log('END SLIDER CONTROLS')
-  console.log('=============================================')
-  console.log('=============================================')
-  console.log('=============================================')
-  console.log('BEGIN x')
+  console.log('==========================================================================================')
 
-  // X
+  // BEGIN X
   X.prototype.p = function (a, b, c, d) {
     this.h = d
     this.l = document.createElement('canvas')
@@ -1325,18 +1167,9 @@ var global_V = !1
   }
   X.prototype.sa = function () {
     var a = this.Da
-    this.h.clearRect(
-      this.H - a,
-      this.I - a,
-      this.M - this.H + 2 * a,
-      this.L - this.I + 2 * a
-    )
+    this.h.clearRect(this.H - a, this.I - a, this.M - this.H + 2 * a, this.L - this.I + 2 * a)
     this.I = this.H = Number.MAX_VALUE
-    for (
-      var a = (this.L = this.M = 0), b = this.e, c = this.n, d = 0;
-      d < c;
-      d++
-    )
+    for (var a = (this.L = this.M = 0), b = this.e, c = this.n, d = 0; d < c; d++)
       for (var e = 0; e < b; e++)
         if (e < b - 1 && d < c - 1) {
           var f = this.c[d * b + e],
@@ -1421,11 +1254,7 @@ var global_V = !1
   }
   console.log('X', X)
 
-  console.log('END X')
-  console.log('=============================================')
-  console.log('=============================================')
-  console.log('=============================================')
-  console.log('BEGIN G')
+  // ==========================================================================================
 
   // G
   G.prototype.p = function (a, b, c, d) {
@@ -1543,72 +1372,27 @@ var global_V = !1
     m = (m - j) / (f - b)
     c = (k - j) / (c - a)
     f = (n - g) / (f - b)
-    return (
-      'matrix3d(' +
-      d +
-      ',' +
-      c +
-      ',0,0,' +
-      f +
-      ',' +
-      m +
-      ',0,0,0,0,1,0,' +
-      (g - a * d - b * f) +
-      ',' +
-      (j - b * m - a * c) +
-      ',0,1)'
-    )
+    return 'matrix3d(' + d + ',' + c + ',0,0,' + f + ',' + m + ',0,0,0,0,1,0,' + (g - a * d - b * f) + ',' + (j - b * m - a * c) + ',0,1)'
   }
   G.prototype.Ha = function (a, b, c, d, e, f, g, j, l, k, n, m) {
     d = (l - g) / (c - a)
     m = (m - j) / (f - b)
     c = (k - j) / (c - a)
     f = (n - g) / (f - b)
-    return (
-      'matrix(' +
-      d +
-      ',' +
-      c +
-      ',' +
-      f +
-      ',' +
-      m +
-      ',' +
-      (g - a * d - b * f) +
-      ',' +
-      (j - b * m - a * c) +
-      ')'
-    )
+    return 'matrix(' + d + ',' + c + ',' + f + ',' + m + ',' + (g - a * d - b * f) + ',' + (j - b * m - a * c) + ')'
   }
   G.prototype.Fa = function () {
-    for (
-      var a = document.body,
-        b = [
-          'transform',
-          'WebkitTransform',
-          'MozTransform',
-          'msTransform',
-          'OTransform',
-        ],
-        c;
-      (c = b.shift());
-
-    )
-      if ('undefined' != typeof a.style[c]) return c
+    for (var a = document.body, b = ['transform', 'WebkitTransform', 'MozTransform', 'msTransform', 'OTransform'], c; (c = b.shift()); ) if ('undefined' != typeof a.style[c]) return c
     return global_V
   }
   console.log('G', G)
 
-  console.log('END G')
-  console.log('=============================================')
-  console.log('=============================================')
-  console.log('=============================================')
-  console.log('BEGIN pb and all initial variables')
+  // ==========================================================================================
 
   var pb = (function () {
     function a(a) {
       a = a ? 'addEventListener' : 'removeEventListener'
-      u[a]('touchend', d, global_V)
+      el_optionsBTN[a]('touchend', d, global_V)
       s[a]('touchend', k, global_V)
     }
     function setIconBarWidthHeight() {
@@ -1630,9 +1414,7 @@ var global_V = !1
       }, 750)
     }
     function d() {
-      g.w
-        ? e()
-        : (window.addEventListener('resize', f, global_V), (g.S = e), j())
+      g.w ? e() : (window.addEventListener('resize', f, global_V), (g.S = e), j())
     }
     function e() {
       g.S = global_A
@@ -1679,10 +1461,8 @@ var global_V = !1
       g.show()
       setTimeout(function () {
         g.el_sliderBoard.style.opacity = 1
-        g.el_sliderBoard.style.WebkitTransform =
-          'translate3d(' + b + 'px,' + c + 'px,0px)'
-        g.el_sliderBoard.style.WebkitTransition =
-          'all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)'
+        g.el_sliderBoard.style.WebkitTransform = 'translate3d(' + b + 'px,' + c + 'px,0px)'
+        g.el_sliderBoard.style.WebkitTransition = 'all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)'
       }, 0)
       setTimeout(function () {
         g.el_sliderBoard.style.WebkitTransition = ''
@@ -1696,8 +1476,7 @@ var global_V = !1
       var a = 0.3 * -h().y
       setTimeout(function () {
         g.el_sliderBoard.style.opacity = 0
-        g.el_sliderBoard.style.WebkitTransform =
-          'translate3d(0px,' + a + 'px,0px)'
+        g.el_sliderBoard.style.WebkitTransform = 'translate3d(0px,' + a + 'px,0px)'
         g.el_sliderBoard.style.WebkitTransition = 'all 0.25s ease-in-out'
       }, 0)
       setTimeout(function () {
@@ -1727,8 +1506,7 @@ var global_V = !1
           z.style.opacity = 1
           z.style.WebkitTransition = 'opacity 0.25s ease-out'
           d.style.WebkitTransform = 'translate3d(0px,' + f + 'px,0px)'
-          d.style.WebkitTransition =
-            '-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)'
+          d.style.WebkitTransition = '-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)'
         }, 0)
         setTimeout(function () {
           z.addEventListener('touchstart', n, global_V)
@@ -1743,8 +1521,7 @@ var global_V = !1
           z.style.WebkitTransition = 'opacity 0.2s ease-out'
           var a = document.getElementById('aboutOverlayInner')
           a.style.WebkitTransform = 'translate3d(0px,8px,0px)'
-          a.style.WebkitTransition =
-            '-webkit-transform 0.25s cubic-bezier(1.000, 0.000, 1.000, 0.750)'
+          a.style.WebkitTransition = '-webkit-transform 0.25s cubic-bezier(1.000, 0.000, 1.000, 0.750)'
         }, 0),
         setTimeout(function () {
           z.style.display = 'none'
@@ -1756,9 +1533,7 @@ var global_V = !1
     }
 
     function m(arg) {
-      arg
-        ? document.addEventListener('touchstart', o, global_V)
-        : document.removeEventListener('touchstart', o, global_V)
+      arg ? document.addEventListener('touchstart', o, global_V) : document.removeEventListener('touchstart', o, global_V)
     }
 
     function o(arg) {
@@ -1767,7 +1542,7 @@ var global_V = !1
 
     var v = '',
       t = 280,
-      u,
+      el_optionsBTN,
       s,
       z,
       x = global_V,
@@ -1787,8 +1562,8 @@ var global_V = !1
           }
           S.ca = 1.5
         }
-        var e = getElementByIdWrapper('iconBar')
-        e.style.display = 'block'
+        var el_iconBar = getElementByIdWrapper('iconBar')
+        el_iconBar.style.display = 'block'
         w = s = getElementByIdWrapper('infoBTN')
         s.addEventListener(
           'touchstart',
@@ -1798,11 +1573,11 @@ var global_V = !1
           },
           global_V
         )
-        u = getElementByIdWrapper('optionsBTN')
-        u.addEventListener(
+        el_optionsBTN = getElementByIdWrapper('optionsBTN')
+        el_optionsBTN.addEventListener(
           'touchstart',
           function () {
-            c(u)
+            c(el_optionsBTN)
           },
           global_V
         )
@@ -1816,8 +1591,7 @@ var global_V = !1
           document.addEventListener(
             'touchstart',
             function () {
-              0 == document.body.scrollTop &&
-                setTimeout(window.scrollTo, 10, 0, 1)
+              0 == document.body.scrollTop && setTimeout(window.scrollTo, 10, 0, 1)
             },
             global_V
           )
@@ -1827,26 +1601,23 @@ var global_V = !1
         }, 100)
         setTimeout(
           function () {
-            Q &&
-              ((getElementByIdWrapper('out').style.height = '100%'),
-              handler_orientationchange())
+            Q && ((getElementByIdWrapper('out').style.height = '100%'), handler_orientationchange())
             window.onresize = handler_orientationchange
             window.addEventListener('resize', setIconBarWidthHeight, global_V)
-            getElementByIdWrapper('stickyContainer').style.visibility =
-              'visible'
+            getElementByIdWrapper('stickyContainer').style.visibility = 'visible'
             ga()
           },
           P ? 150 : 1250
         )
         P
           ? (setTimeout(function () {
-              e.style.opacity = 1
-              e.style.WebkitTransition = 'opacity 0.55s ease-in-out'
+              el_iconBar.style.opacity = 1
+              el_iconBar.style.WebkitTransition = 'opacity 0.55s ease-in-out'
             }, 1500),
             setTimeout(function () {
-              e.style.WebkitTransition = ''
+              el_iconBar.style.WebkitTransition = ''
             }, 3e3))
-          : (e.style.opacity = 1)
+          : (el_iconBar.style.opacity = 1)
       },
     }
   })()
@@ -1860,8 +1631,8 @@ var global_V = !1
     F = 0,
     Ba,
     el_image,
-    za = Math.PI,
-    nb = 2 * za,
+    pi = Math.PI,
+    tau = 2 * pi,
     cursorHandURL = 'url(img/cursor-hand.png),auto',
     cursorGrabURL = 'url(img/cursor-grab.png),auto',
     pa = 'default',
@@ -1886,8 +1657,8 @@ var global_V = !1
     qb = global_p,
     ea = -4,
     K = 60,
-    $ = window.innerWidth,
-    fa = window.innerHeight,
+    windowInnerWidth = window.innerWidth,
+    windowInnerHeight = window.innerHeight,
     meshPoints = [],
     l = [],
     Ab = [],
@@ -1901,7 +1672,7 @@ var global_V = !1
     ka,
     la = 0,
     Oa,
-    Ma = 0.5 * ($ - La),
+    Ma = 0.5 * (windowInnerWidth - La),
     Na = 100,
     db = 0,
     fb = 0,
@@ -1914,10 +1685,7 @@ var global_V = !1
     wa = global_V,
     tb = -1 != document.location.href.indexOf('http'),
     userAgent = navigator.userAgent,
-    P =
-      userAgent.match(/iPhone/i) ||
-      userAgent.match(/iPod/i) ||
-      userAgent.match(/iPad/i),
+    P = userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) || userAgent.match(/iPad/i),
     Q = /Android/.test(userAgent),
     u = 'ontouchend' in document,
     ra = u && 740 < window.innerWidth && 520 < window.innerHeight,

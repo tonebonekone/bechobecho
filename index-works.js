@@ -5,10 +5,7 @@ var V = !1
 
 ;(function () {
   function Ca() {
-    L =
-      t *
-      (0.105 +
-        0.895 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
+    L = t * (0.105 + 0.895 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
     L < W && (L = W)
   }
   var Da, Ea
@@ -77,8 +74,7 @@ var V = !1
 
   function Ha(a) {
     N = a
-    1300 > window.innerWidth &&
-      (o = 0.65 + 0.35 * ((window.innerWidth - 950) / 350))
+    1300 > window.innerWidth && (o = 0.65 + 0.35 * ((window.innerWidth - 950) / 350))
     800 > window.innerWidth && (o = O)
     Y = !P
     ca = userAgent.match(/Firefox/i) ? oa : Y ? (tb ? ub : oa) : vb
@@ -87,8 +83,7 @@ var V = !1
     Q &&
       ((document.body.style.overflow = 'visible'),
       (getElementByIdWrapper('out').style.display = 'block'),
-      (getElementByIdWrapper('out').style.height =
-        window.outerHeight + 100 + 'px'),
+      (getElementByIdWrapper('out').style.height = window.outerHeight + 100 + 'px'),
       (getElementByIdWrapper('stickyContainer').style.visibility = 'visible'),
       (Y = p),
       (ca = oa),
@@ -110,22 +105,10 @@ var V = !1
       if (0 == d || d == v - 1 || 0 == e || e == s - 1) (f.ja = p), Ab.push(f)
       meshPoints[c] = f
       var h
-      e < s - 1 &&
-        ((h = meshPoints[Math.floor((e + 1) * v + d)]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
-      e < s - 2 &&
-        ((h = meshPoints[Math.floor((e + 2) * v + d)]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
-      d < s - 1 &&
-        ((h = meshPoints[Math.floor(e * v + (d + 1))]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
-      d < s - 2 &&
-        ((h = meshPoints[Math.floor(e * v + (d + 2))]),
-        y.push(H(f, h)),
-        y.push(H(h, f)))
+      e < s - 1 && ((h = meshPoints[Math.floor((e + 1) * v + d)]), y.push(H(f, h)), y.push(H(h, f)))
+      e < s - 2 && ((h = meshPoints[Math.floor((e + 2) * v + d)]), y.push(H(f, h)), y.push(H(h, f)))
+      d < s - 1 && ((h = meshPoints[Math.floor(e * v + (d + 1))]), y.push(H(f, h)), y.push(H(h, f)))
+      d < s - 2 && ((h = meshPoints[Math.floor(e * v + (d + 2))]), y.push(H(f, h)), y.push(H(h, f)))
     }
     D = meshPoints.length
     Oa = 0.5 * D
@@ -148,14 +131,9 @@ var V = !1
     maxStickiness = 10
     Na = Ma = 0
     I = 0.5
-    ra
-      ? ((o = 0.77), (Z *= 0.9), (O *= 0.75))
-      : ((o = 0.35), (O = 0.225), (Z = 0.85))
+    ra ? ((o = 0.77), (Z *= 0.9), (O *= 0.75)) : ((o = 0.35), (O = 0.225), (Z = 0.85))
     Ca = function () {
-      L =
-        t *
-        (0.35 +
-          0.65 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
+      L = t * (0.35 + 0.65 * ((stiffness - minStiffness) / (maxStiffness - minStiffness)))
       L < W && (L = W)
     }
     setTimeout(
@@ -170,17 +148,7 @@ var V = !1
             }
           }
         : function () {
-            for (
-              var a = window.innerWidth < window.innerHeight,
-                b =
-                  0.9 * ((a ? window.innerWidth : window.innerHeight) / 3 / s),
-                a = a ? 8 : 3,
-                c = 0.5 * ($ - 3 * b),
-                d = 0.5 * (fa - 3 * b),
-                e = D;
-              e--;
-
-            ) {
+            for (var a = window.innerWidth < window.innerHeight, b = 0.9 * ((a ? window.innerWidth : window.innerHeight) / 3 / s), a = a ? 8 : 3, c = 0.5 * ($ - 3 * b), d = 0.5 * (fa - 3 * b), e = D; e--; ) {
               var f = meshPoints[e]
               f.x = c + b * f.fa
               f.y = d + b * f.ta
@@ -234,24 +202,10 @@ var V = !1
 
     u
       ? Y
-        ? (canvasElement.addEventListener('touchstart', handler_touchstart, V),
-          canvasElement.addEventListener('touchend', handler_touchend, V),
-          canvasElement.addEventListener('touchmove', handler_touchmove, V))
-        : (getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchstart',
-            handler_touchstart,
-            V
-          ),
-          getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchend',
-            handler_touchend,
-            V
-          ),
-          getElementByIdWrapper('stickyContainer').addEventListener(
-            'touchmove',
-            handler_touchmove,
-            V
-          ),
+        ? (canvasElement.addEventListener('touchstart', handler_touchstart, V), canvasElement.addEventListener('touchend', handler_touchend, V), canvasElement.addEventListener('touchmove', handler_touchmove, V))
+        : (getElementByIdWrapper('stickyContainer').addEventListener('touchstart', handler_touchstart, V),
+          getElementByIdWrapper('stickyContainer').addEventListener('touchend', handler_touchend, V),
+          getElementByIdWrapper('stickyContainer').addEventListener('touchmove', handler_touchmove, V),
           document.addEventListener(
             'touchmove',
             function (a) {
@@ -259,9 +213,7 @@ var V = !1
             },
             V
           ))
-      : (document.addEventListener('mousedown', handler_mousedown, V),
-        document.addEventListener('mouseup', ua, V),
-        document.addEventListener('mousemove', Db, V))
+      : (document.addEventListener('mousedown', handler_mousedown, V), document.addEventListener('mouseup', ua, V), document.addEventListener('mousemove', Db, V))
 
     document.addEventListener(
       'gesturestart',
@@ -274,10 +226,7 @@ var V = !1
     document.addEventListener(
       'gesturechange',
       function (a) {
-        if (!Ya || !g.w)
-          a.preventDefault(),
-            (o = Xa + 0.415 * (a.scale - 1)),
-            (o = Math.min(Z, Math.max(o, O)))
+        if (!Ya || !g.w) a.preventDefault(), (o = Xa + 0.415 * (a.scale - 1)), (o = Math.min(Z, Math.max(o, O)))
       },
       V
     )
@@ -290,9 +239,7 @@ var V = !1
       V
     )
     window.addEventListener('devicemotion', handler_devicemotion, V)
-    document
-      .getElementById('options')
-      .addEventListener('click', addOrRemoveMouseOverOutEventListener, V)
+    document.getElementById('options').addEventListener('click', addOrRemoveMouseOverOutEventListener, V)
     if (!u)
       for (var a = document.getElementsByTagName('a'), b = 0; b < a.length; b++)
         a[b].addEventListener(
@@ -312,11 +259,7 @@ var V = !1
     document.onselectstart = function () {
       return V
     }
-    document.body.addEventListener(
-      'orientationchange',
-      handler_orientationchange,
-      V
-    )
+    document.body.addEventListener('orientationchange', handler_orientationchange, V)
   }
 
   function handler_devicemotion(a) {
@@ -352,12 +295,7 @@ var V = !1
   }
   function oa() {
     var a = bb(l)
-    return (
-      E > a.x - 2 &&
-      E < a.x + a.width + 2 &&
-      F > a.y - 2 &&
-      F < a.y + a.height + 2
-    )
+    return E > a.x - 2 && E < a.x + a.width + 2 && F > a.y - 2 && F < a.y + a.height + 2
   }
   function vb() {
     return ta
@@ -381,16 +319,9 @@ var V = !1
       if (33 > b && !va) va = p
       else {
         va = V
-        Pa &&
-          ((db = window.screenX - eb),
-          (fb = window.screenY - gb),
-          (eb = window.screenX),
-          (gb = window.screenY))
+        Pa && ((db = window.screenX - eb), (fb = window.screenY - gb), (eb = window.screenX), (gb = window.screenY))
         ja = ca()
-        wa ||
-          ((a = ka > 0.8 * D),
-          !hb(l) || a ? la++ : (la = 0),
-          30 < la && ((la = 0), ib()))
+        wa || ((a = ka > 0.8 * D), !hb(l) || a ? la++ : (la = 0), 30 < la && ((la = 0), ib()))
         a = minStiffness + 0.75 * (maxStiffness - minStiffness)
         stiffness = U && 0 == ba && w < a ? a : w
         xa = U && 0 == ba ? 0.94 : 1
@@ -399,13 +330,9 @@ var V = !1
         continuouslyCalledPhysicsFunction()
         someTrigFunction()
         continuouslyCalledPhysicsFunction()
-        for (a = D; a--; )
-          (S.c[a][0] = meshPoints[a].x), (S.c[a][1] = meshPoints[a].y)
+        for (a = D; a--; ) (S.c[a][0] = meshPoints[a].x), (S.c[a][1] = meshPoints[a].y)
         S.sa()
-        u ||
-          ((a = ''),
-          (a = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa),
-          a != ya && ((ya = a), (document.body.style.cursor = ya)))
+        u || ((a = ''), (a = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa), a != ya && ((ya = a), (document.body.style.cursor = ya)))
       }
       requestAnimFrame(Sa)
     }
@@ -423,17 +350,8 @@ var V = !1
         h = (d.y - (c.y + Math.sin(h) * b.length * o)) * stiffness,
         g = 0.5 * (Math.abs(J) + Math.abs(h)) > L
       u && U && (g = p)
-      if (!c.q || g)
-        (e = Math.atan2(f, e)),
-          (c.q = V),
-          (c.j += J),
-          (c.k += h),
-          (c.x += J * ma),
-          (c.y += h * ma),
-          (c.G += lb(e - (b.s + c.s)) * Ia),
-          (c.s += c.G)
-      if (!d.q || g)
-        (d.q = V), (d.j -= J), (d.k -= h), (d.x -= J * ma), (d.y -= h * ma)
+      if (!c.q || g) (e = Math.atan2(f, e)), (c.q = V), (c.j += J), (c.k += h), (c.x += J * ma), (c.y += h * ma), (c.G += lb(e - (b.s + c.s)) * Ia), (c.s += c.G)
+      if (!d.q || g) (d.q = V), (d.j -= J), (d.k -= h), (d.x -= J * ma), (d.y -= h * ma)
     }
   }
 
@@ -487,9 +405,7 @@ var V = !1
       d > k && ((f = p), (d = k))
       d < g && ((f = p), (d = g))
       ;(e || f) && ka++
-      ;(h = (e || f) && ba < 0.25 * D)
-        ? ((b.i = 0), (b.f = 0), (b.G = 0), e && (b.x = c), f && (b.y = d))
-        : ((b.x = c), (b.y = d))
+      ;(h = (e || f) && ba < 0.25 * D) ? ((b.i = 0), (b.f = 0), (b.G = 0), e && (b.x = c), f && (b.y = d)) : ((b.x = c), (b.y = d))
       b.q = h
     }
   }
@@ -515,16 +431,7 @@ var V = !1
     ua()
     handler_orientationchange()
     wa = p
-    for (
-      var a = bb(l),
-        b = a.x + 0.5 * a.width,
-        c = a.y + 0.5 * a.height,
-        d = Number.MAX_VALUE,
-        e,
-        f = l.length;
-      f--;
-
-    ) {
+    for (var a = bb(l), b = a.x + 0.5 * a.width, c = a.y + 0.5 * a.height, d = Number.MAX_VALUE, e, f = l.length; f--; ) {
       var h = l[f],
         a = h.x - b,
         h = h.y - c,
@@ -554,14 +461,12 @@ var V = !1
       a = b[0].oa
       a.$ = p
       d = a.ja ? 5 : 9
-      for (c = -1; ++c < d; )
-        (a = b[c].oa), (a.Z = p), (a.Ta = E - a.x), (a.Ua = F - a.y)
+      for (c = -1; ++c < d; ) (a = b[c].oa), (a.Z = p), (a.Ta = E - a.x), (a.Ua = F - a.y)
     }
   }
   function ua() {
     if (U) {
-      for (var a = meshPoints.length; a--; )
-        (meshPoints[a].Z = V), (meshPoints[a].$ = V)
+      for (var a = meshPoints.length; a--; ) (meshPoints[a].Z = V), (meshPoints[a].$ = V)
       U = V
     }
   }
@@ -581,19 +486,14 @@ var V = !1
   function handler_touchstart(a) {
     console.log('called handler_touchStart()')
     console.log('a', a)
-    1 == a.touches.length &&
-      ((E = a.touches[0].pageX),
-      (F = a.touches[0].pageY),
-      3 != a.target.nodeType &&
-        (a.preventDefault(), Y && (ja = ca()), handler_mousedown()))
+    1 == a.touches.length && ((E = a.touches[0].pageX), (F = a.touches[0].pageY), 3 != a.target.nodeType && (a.preventDefault(), Y && (ja = ca()), handler_mousedown()))
   }
   function handler_touchend(a) {
     console.log('called handler_touchEnd()')
     3 != a.target.nodeType && (a.preventDefault(), ua())
   }
   function handler_touchmove(a) {
-    1 == a.touches.length &&
-      (a.preventDefault(), (E = a.touches[0].pageX), (F = a.touches[0].pageY))
+    1 == a.touches.length && (a.preventDefault(), (E = a.touches[0].pageX), (F = a.touches[0].pageY))
   }
   function bb(a) {
     for (var b = 1e5, c = -1e5, d = 1e5, e = -1e5, f = a.length; f--; ) {
@@ -618,12 +518,7 @@ var V = !1
       var e = 0 == d ? c - 1 : d - 1,
         f = d,
         h = d == c - 1 ? 0 : d + 1,
-        e =
-          0 <
-          (a[f].x - a[e].x) * (a[h].y - a[f].y) -
-            (a[h].x - a[f].x) * (a[f].y - a[e].y)
-            ? p
-            : V
+        e = 0 < (a[f].x - a[e].x) * (a[h].y - a[f].y) - (a[h].x - a[f].x) * (a[f].y - a[e].y) ? p : V
       if (0 == d) b = e
       else if (b != e) return V
     }
@@ -663,24 +558,11 @@ var V = !1
           pb.p()
         }, 750)
       : (Ha(N),
-        isNaN(parseFloat(localStorage.getItem('stickything.stickiness'))) ||
-          ((t = parseFloat(localStorage.getItem('stickything.stickiness'))),
-          (t = Aa(t, W, maxStickiness)),
-          (qb = V)),
-        isNaN(parseFloat(localStorage.getItem('stickything.stiffness'))) ||
-          ((w = parseFloat(localStorage.getItem('stickything.stiffness'))),
-          (w = Aa(w, minStiffness, maxStiffness))),
-        isNaN(parseFloat(localStorage.getItem('stickything.scale'))) ||
-          ((o = parseFloat(localStorage.getItem('stickything.scale'))),
-          (o = Aa(o, O, Z))),
-        isNaN(parseFloat(localStorage.getItem('stickything.gravityY'))) ||
-          (I = parseFloat(localStorage.getItem('stickything.gravityY'))),
-        isNaN(
-          parseFloat(localStorage.getItem('stickything.accelerometerFactor'))
-        ) ||
-          (ia = parseFloat(
-            localStorage.getItem('stickything.accelerometerFactor')
-          )),
+        isNaN(parseFloat(localStorage.getItem('stickything.stickiness'))) || ((t = parseFloat(localStorage.getItem('stickything.stickiness'))), (t = Aa(t, W, maxStickiness)), (qb = V)),
+        isNaN(parseFloat(localStorage.getItem('stickything.stiffness'))) || ((w = parseFloat(localStorage.getItem('stickything.stiffness'))), (w = Aa(w, minStiffness, maxStiffness))),
+        isNaN(parseFloat(localStorage.getItem('stickything.scale'))) || ((o = parseFloat(localStorage.getItem('stickything.scale'))), (o = Aa(o, O, Z))),
+        isNaN(parseFloat(localStorage.getItem('stickything.gravityY'))) || (I = parseFloat(localStorage.getItem('stickything.gravityY'))),
+        isNaN(parseFloat(localStorage.getItem('stickything.accelerometerFactor'))) || (ia = parseFloat(localStorage.getItem('stickything.accelerometerFactor'))),
         ob(),
         u ? pb.p() : Jb())
   }
@@ -795,14 +677,7 @@ var V = !1
    * Something about removing the mouseover event listener
    */
   function addOrRemoveMouseOverOutEventListener(a) {
-    g.w
-      ? (g.a.removeEventListener('mouseover', na, V),
-        g.a.removeEventListener('mouseout', na, V),
-        a && g.X(),
-        (aa = V))
-      : (g.a.addEventListener('mouseover', na, V),
-        g.a.addEventListener('mouseout', na, V),
-        Kb())
+    g.w ? (g.a.removeEventListener('mouseover', na, V), g.a.removeEventListener('mouseout', na, V), a && g.X(), (aa = V)) : (g.a.addEventListener('mouseover', na, V), g.a.addEventListener('mouseout', na, V), Kb())
   }
   function na(a) {
     aa = 'mouseover' == a.type ? p : V
@@ -828,14 +703,9 @@ var V = !1
   }
   function outElementInitialize() {
     getElementByIdWrapper('out').style.display = 'block'
-    for (
-      var a = arguments[arguments.length - 1], b = arguments.length - 1;
-      b--;
-
-    ) {
+    for (var a = arguments[arguments.length - 1], b = arguments.length - 1; b--; ) {
       a = arguments[b] + ', ' + a
-      getElementByIdWrapper('out').innerHTML =
-        getElementByIdWrapper('out').innerHTML + '<br>' + a
+      getElementByIdWrapper('out').innerHTML = getElementByIdWrapper('out').innerHTML + '<br>' + a
     }
   }
   var r = (function () {
@@ -856,9 +726,7 @@ var V = !1
         }
         function d(a) {
           var c
-          a.touches && a.touches.length
-            ? ((c = a.touches[0].clientX), (a = a.touches[0].clientY))
-            : ((c = a.clientX), (a = a.clientY))
+          a.touches && a.touches.length ? ((c = a.touches[0].clientX), (a = a.touches[0].clientY)) : ((c = a.clientX), (a = a.clientY))
           c = b(e.element, c, a)
           return [c.x, c.y]
         }
@@ -885,8 +753,7 @@ var V = !1
         return V
       }
       function b(a, b, c) {
-        for (a = a.parentElement; a; )
-          (b -= a.offsetLeft), (c -= a.offsetTop), (a = a.parentElement)
+        for (a = a.parentElement; a; ) (b -= a.offsetLeft), (c -= a.offsetTop), (a = a.parentElement)
         return { x: b, y: c }
       }
       function c(a, b, c) {
@@ -907,12 +774,8 @@ var V = !1
         g = {},
         B,
         k
-      navigator.userAgent.match(/iPhone/i) ||
-        navigator.userAgent.match(/iPod/i) ||
-        navigator.userAgent.match(/iPad/i)
-      ;/AppleWebKit/.test(navigator.userAgent)
-        ? ((B = e), (k = f))
-        : ((B = c), (k = d))
+      navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i)
+      ;/AppleWebKit/.test(navigator.userAgent) ? ((B = e), (k = f)) : ((B = c), (k = d))
       return {
         ka: function (b) {
           b.handle || (b.handle = b.element)
@@ -1033,16 +896,8 @@ var V = !1
   n.Xa = function () {}
   n.Oa = function (a) {
     var b = a ? a : window.event,
-      c = r.v(
-        this.a.parentElement
-          ? this.a.parentElement.parentElement
-          : this.a.parentNode.parentNode
-      ),
-      c =
-        ('mousedown' == a.type ? a.pageX : a.touches[0].pageX) -
-        c.x -
-        20 -
-        0.5 * this.D
+      c = r.v(this.a.parentElement ? this.a.parentElement.parentElement : this.a.parentNode.parentNode),
+      c = ('mousedown' == a.type ? a.pageX : a.touches[0].pageX) - c.x - 20 - 0.5 * this.D
     c < this.d.left && (c = this.d.left)
     c > this.d.right && (c = this.d.right)
     var d = r.v(this.g)
@@ -1170,11 +1025,7 @@ var V = !1
     0 > a && (a = 0)
     0 > b && (b = 0)
     var c = r.v(this.a)
-    c.x > a && c.y > b
-      ? r.o(this.a, a, b)
-      : c.x > a
-      ? r.o(this.a, a, c.y)
-      : c.y > b && r.o(this.a, c.x, b)
+    c.x > a && c.y > b ? r.o(this.a, a, b) : c.x > a ? r.o(this.a, a, c.y) : c.y > b && r.o(this.a, c.x, b)
     this.O.d.right = a
     this.O.d.bottom = b
   }
@@ -1262,18 +1113,9 @@ var V = !1
   }
   X.prototype.sa = function () {
     var a = this.Da
-    this.h.clearRect(
-      this.H - a,
-      this.I - a,
-      this.M - this.H + 2 * a,
-      this.L - this.I + 2 * a
-    )
+    this.h.clearRect(this.H - a, this.I - a, this.M - this.H + 2 * a, this.L - this.I + 2 * a)
     this.I = this.H = Number.MAX_VALUE
-    for (
-      var a = (this.L = this.M = 0), b = this.e, c = this.n, d = 0;
-      d < c;
-      d++
-    )
+    for (var a = (this.L = this.M = 0), b = this.e, c = this.n, d = 0; d < c; d++)
       for (var e = 0; e < b; e++)
         if (e < b - 1 && d < c - 1) {
           var f = this.c[d * b + e],
@@ -1474,58 +1316,17 @@ var V = !1
     m = (m - j) / (f - b)
     c = (k - j) / (c - a)
     f = (n - g) / (f - b)
-    return (
-      'matrix3d(' +
-      d +
-      ',' +
-      c +
-      ',0,0,' +
-      f +
-      ',' +
-      m +
-      ',0,0,0,0,1,0,' +
-      (g - a * d - b * f) +
-      ',' +
-      (j - b * m - a * c) +
-      ',0,1)'
-    )
+    return 'matrix3d(' + d + ',' + c + ',0,0,' + f + ',' + m + ',0,0,0,0,1,0,' + (g - a * d - b * f) + ',' + (j - b * m - a * c) + ',0,1)'
   }
   G.prototype.Ha = function (a, b, c, d, e, f, g, j, l, k, n, m) {
     d = (l - g) / (c - a)
     m = (m - j) / (f - b)
     c = (k - j) / (c - a)
     f = (n - g) / (f - b)
-    return (
-      'matrix(' +
-      d +
-      ',' +
-      c +
-      ',' +
-      f +
-      ',' +
-      m +
-      ',' +
-      (g - a * d - b * f) +
-      ',' +
-      (j - b * m - a * c) +
-      ')'
-    )
+    return 'matrix(' + d + ',' + c + ',' + f + ',' + m + ',' + (g - a * d - b * f) + ',' + (j - b * m - a * c) + ')'
   }
   G.prototype.Fa = function () {
-    for (
-      var a = document.body,
-        b = [
-          'transform',
-          'WebkitTransform',
-          'MozTransform',
-          'msTransform',
-          'OTransform',
-        ],
-        c;
-      (c = b.shift());
-
-    )
-      if ('undefined' != typeof a.style[c]) return c
+    for (var a = document.body, b = ['transform', 'WebkitTransform', 'MozTransform', 'msTransform', 'OTransform'], c; (c = b.shift()); ) if ('undefined' != typeof a.style[c]) return c
     return V
   }
   console.log('G', G)
@@ -1603,8 +1404,7 @@ var V = !1
         setTimeout(function () {
           g.a.style.opacity = 1
           g.a.style.WebkitTransform = 'translate3d(' + b + 'px,' + c + 'px,0px)'
-          g.a.style.WebkitTransition =
-            'all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)'
+          g.a.style.WebkitTransition = 'all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)'
         }, 0)
         setTimeout(function () {
           g.a.style.WebkitTransition = ''
@@ -1648,8 +1448,7 @@ var V = !1
             z.style.opacity = 1
             z.style.WebkitTransition = 'opacity 0.25s ease-out'
             d.style.WebkitTransform = 'translate3d(0px,' + f + 'px,0px)'
-            d.style.WebkitTransition =
-              '-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)'
+            d.style.WebkitTransition = '-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)'
           }, 0)
           setTimeout(function () {
             z.addEventListener('touchstart', n, V)
@@ -1664,8 +1463,7 @@ var V = !1
             z.style.WebkitTransition = 'opacity 0.2s ease-out'
             var a = document.getElementById('aboutOverlayInner')
             a.style.WebkitTransform = 'translate3d(0px,8px,0px)'
-            a.style.WebkitTransition =
-              '-webkit-transform 0.25s cubic-bezier(1.000, 0.000, 1.000, 0.750)'
+            a.style.WebkitTransition = '-webkit-transform 0.25s cubic-bezier(1.000, 0.000, 1.000, 0.750)'
           }, 0),
           setTimeout(function () {
             z.style.display = 'none'
@@ -1677,9 +1475,7 @@ var V = !1
       }
 
       function m(a) {
-        a
-          ? document.addEventListener('touchstart', o, V)
-          : document.removeEventListener('touchstart', o, V)
+        a ? document.addEventListener('touchstart', o, V) : document.removeEventListener('touchstart', o, V)
       }
 
       function o(a) {
@@ -1737,8 +1533,7 @@ var V = !1
             document.addEventListener(
               'touchstart',
               function () {
-                0 == document.body.scrollTop &&
-                  setTimeout(window.scrollTo, 10, 0, 1)
+                0 == document.body.scrollTop && setTimeout(window.scrollTo, 10, 0, 1)
               },
               V
             )
@@ -1748,13 +1543,10 @@ var V = !1
           }, 100)
           setTimeout(
             function () {
-              Q &&
-                ((getElementByIdWrapper('out').style.height = '100%'),
-                handler_orientationchange())
+              Q && ((getElementByIdWrapper('out').style.height = '100%'), handler_orientationchange())
               window.onresize = handler_orientationchange
               window.addEventListener('resize', setIconBarWidthHeight, V)
-              getElementByIdWrapper('stickyContainer').style.visibility =
-                'visible'
+              getElementByIdWrapper('stickyContainer').style.visibility = 'visible'
               ga()
             },
             P ? 150 : 1250
@@ -1832,10 +1624,7 @@ var V = !1
     wa = V,
     tb = -1 != document.location.href.indexOf('http'),
     userAgent = navigator.userAgent,
-    P =
-      userAgent.match(/iPhone/i) ||
-      userAgent.match(/iPod/i) ||
-      userAgent.match(/iPad/i),
+    P = userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) || userAgent.match(/iPad/i),
     Q = /Android/.test(userAgent),
     u = 'ontouchend' in document,
     ra = u && 740 < window.innerWidth && 520 < window.innerHeight,
