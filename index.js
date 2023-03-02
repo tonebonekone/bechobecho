@@ -15,16 +15,17 @@ var global_V = !1
   var Da
   var Ea
 
-  //
   function Fa(arg) {
-    console.log('arg', arg)
+    console.log('Fa(arg)')
+    console.log('   arg', arg)
+    console.log('   this', this)
     this.p(arg)
   }
 
-  function slider_initialize(body, draggableObject) {
-    console.log('called Ga(body,draggableObject)')
-    // console.log("a", body);
-    // console.log("b", draggableObject);
+  function init_slider(body, draggableObject) {
+    console.log('init_slider(body,draggableObject)')
+    console.log('    body', body)
+    console.log('    draggableObject', draggableObject)
     this.V = []
     this.height = 32
     this.el_sliderBoard
@@ -33,14 +34,13 @@ var global_V = !1
     this.el_sliderBoardCloseButton
     this.el_sliderBoardCloseButtonIcon
     this.O
-    this.w = global_p
+    this.sliderThumbHit = global_p
     this.K = -1
     this.ua = global_p
     this.p(draggableObject || {})
-    console.log('this.O', this.O)
-    console.log('this.w', this.w)
-    console.log('this.K', this.K)
-    console.log('this.ua', this.ua)
+    console.log('   this.O', this.O)
+    console.log('   this.sliderThumbHit', this.sliderThumbHit)
+    console.log('   this.ua', this.ua)
     body.appendChild(this.el_sliderBoard)
   }
 
@@ -142,7 +142,10 @@ var global_V = !1
   }
 
   function wb() {
+    console.log('wb()')
+    console.log(' cursorGrabURL', cursorGrabURL)
     cursorGrabURL = cursorHandURL = pa
+    console.log(' pa', pa)
     ea = -2
     v = s = 5
     stiffness = 0.07
@@ -205,6 +208,7 @@ var global_V = !1
   }
 
   function ga() {
+    console.log('ga()')
     ha = global_V
     Sa()
   }
@@ -234,10 +238,10 @@ var global_V = !1
   }
 
   function addEventListeners() {
-    console.log('called Cb()')
-    console.log('u', u)
-    console.log('Y', Y)
-    console.log('V', global_V)
+    console.log('addEventListeners()')
+    console.log('   u', u)
+    console.log('   Y', Y)
+    console.log('   global_V', global_V)
 
     u
       ? Y
@@ -276,18 +280,18 @@ var global_V = !1
 
     document.addEventListener(
       'gesturestart',
-      function (arg) {
-        arg.preventDefault()
+      function (event) {
+        event.preventDefault()
         Xa = o
       },
       global_V
     )
     document.addEventListener(
       'gesturechange',
-      function (arg) {
+      function (event) {
         if (!Ya || !g.w)
-          arg.preventDefault(),
-            (o = Xa + 0.415 * (arg.scale - 1)),
+          event.preventDefault(),
+            (o = Xa + 0.415 * (event.scale - 1)),
             (o = Math.min(Z, Math.max(o, O)))
       },
       global_V
@@ -358,9 +362,11 @@ var global_V = !1
       u && (I = d)
     }
   }
+
   function ub() {
     return 0 < drawingContext.getImageData(E - 1, F - 1, 1, 1).data[0]
   }
+
   function oa() {
     var a = bb(l)
     return (
@@ -386,12 +392,16 @@ var global_V = !1
   }
 
   function Sa() {
+    // console.log('Sa()')
+
     if (!ha) {
-      var a = new Date().getTime(),
-        b = a - cb
-      cb = a
-      if (33 > b && !va) va = global_p
-      else {
+      var currentTime = new Date().getTime(),
+        b = currentTime - cb
+      cb = currentTime
+
+      if (33 > b && !va) {
+        va = global_p
+      } else {
         va = global_V
         Pa &&
           ((db = window.screenX - eb),
@@ -400,24 +410,27 @@ var global_V = !1
           (gb = window.screenY))
         ja = ca()
         wa ||
-          ((a = ka > 0.8 * D),
-          !hb(l) || a ? la++ : (la = 0),
+          ((currentTime = ka > 0.8 * D),
+          !hb(l) || currentTime ? la++ : (la = 0),
           30 < la && ((la = 0), ib()))
-        a = minStiffness + 0.75 * (maxStiffness - minStiffness)
-        stiffness = U && 0 == ba && w < a ? a : w
+        currentTime = minStiffness + 0.75 * (maxStiffness - minStiffness)
+        stiffness = U && 0 == ba && w < currentTime ? currentTime : w
         xa = U && 0 == ba ? 0.94 : 1
+        // console.log('    Ca', Ca)
         Ca()
         someTrigFunction()
         continuouslyCalledPhysicsFunction()
         someTrigFunction()
         continuouslyCalledPhysicsFunction()
-        for (a = D; a--; )
-          (S.c[a][0] = meshPoints[a].x), (S.c[a][1] = meshPoints[a].y)
+        for (currentTime = D; currentTime--; )
+          (S.c[currentTime][0] = meshPoints[currentTime].x),
+            (S.c[currentTime][1] = meshPoints[currentTime].y)
         S.sa()
         u ||
-          ((a = ''),
-          (a = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa),
-          a != ya && ((ya = a), (document.body.style.cursor = ya)))
+          ((currentTime = ''),
+          (currentTime = U ? cursorGrabURL : ja && !aa ? cursorHandURL : pa),
+          currentTime != ya &&
+            ((ya = currentTime), (document.body.style.cursor = ya)))
       }
       requestAnimFrame(Sa)
     }
@@ -454,10 +467,9 @@ var global_V = !1
   }
 
   function continuouslyCalledPhysicsFunction() {
-    // console.log("called continuouslyCalledPhysicsFunction()");
+    // console.log('continuouslyCalledPhysicsFunction()')
     ba = ka = 0
-
-    // console.log("j", meshPoints);
+    // console.log('   meshPoints', meshPoints)
     for (var a = meshPoints.length; a--; ) {
       var b = meshPoints[a]
       if (b.Z) {
@@ -509,6 +521,7 @@ var global_V = !1
       b.q = h
     }
   }
+
   function ib() {
     setTimeout(
       function (a, b, c, d) {
@@ -594,22 +607,24 @@ var global_V = !1
     el_canvas.width = $
     el_canvas.height = fa
   }
-  function handler_touchstart(arg) {
-    console.log('called handler_touchStart()')
-    // console.log("a", a);
-    1 == arg.touches.length &&
-      ((E = arg.touches[0].pageX),
-      (F = arg.touches[0].pageY),
-      3 != arg.target.nodeType &&
-        (arg.preventDefault(), Y && (ja = ca()), handler_mousedown()))
+
+  function handler_touchstart(event) {
+    console.log('handler_touchStart()')
+    1 == event.touches.length &&
+      ((E = event.touches[0].pageX),
+      (F = event.touches[0].pageY),
+      3 != event.target.nodeType &&
+        (event.preventDefault(), Y && (ja = ca()), handler_mousedown()))
   }
-  function handler_touchend(a) {
-    console.log('called handler_touchEnd()')
-    3 != a.target.nodeType && (a.preventDefault(), meshes_something())
+  function handler_touchend(event) {
+    console.log('handler_touchEnd()')
+    3 != event.target.nodeType && (event.preventDefault(), meshes_something())
   }
-  function handler_touchmove(a) {
-    1 == a.touches.length &&
-      (a.preventDefault(), (E = a.touches[0].pageX), (F = a.touches[0].pageY))
+  function handler_touchmove(event) {
+    1 == event.touches.length &&
+      (event.preventDefault(),
+      (E = event.touches[0].pageX),
+      (F = event.touches[0].pageY))
   }
   function bb(a) {
     for (var b = 1e5, c = -1e5, d = 1e5, e = -1e5, f = a.length; f--; ) {
@@ -671,7 +686,8 @@ var global_V = !1
   }
 
   function getStuffFromLocalStorage() {
-    console.log('Q', Q)
+    console.log('getStuffFromLocalStorage()')
+    console.log('   Q', Q)
     Q
       ? setTimeout(function () {
           Ha(el_image)
@@ -716,8 +732,8 @@ var global_V = !1
   }
 
   function ob() {
-    console.log('called ob()')
-    g = new slider_initialize(document.body, { draggable: !u })
+    console.log('ob()')
+    g = new init_slider(document.body, { draggable: !u })
     console.log('g', g)
     console.log('g', g)
     g.add(
@@ -844,7 +860,8 @@ var global_V = !1
   function getElementByIdWrapper(a) {
     return document.getElementById(a)
   }
-  function outElementInitialize() {
+
+  function init_el_out() {
     getElementByIdWrapper('out').style.display = 'block'
     for (
       var a = arguments[arguments.length - 1], b = arguments.length - 1;
@@ -917,11 +934,12 @@ var global_V = !1
     function e(a, b, c) {
       a.style.WebkitTransform = 'translate3d(' + b + 'px,' + c + 'px,0px)'
     }
+
     function f(arg) {
-      console.log('arg', arg)
       arg = new WebKitCSSMatrix(window.getComputedStyle(arg).webkitTransform)
       return { x: arg.m41, y: arg.m42 }
     }
+
     var h = 0,
       g = {},
       B,
@@ -952,18 +970,23 @@ var global_V = !1
     }
   })()
 
-  var n = Fa.prototype
+  // SLIDER CONTROLS
+  console.log('=============================================')
+  console.log('START SLIDER CONTROLS')
+  console.log('Fa', Fa)
+  console.log('Fa.prototype', Fa.prototype)
 
-  // n
-  n.U = function (a) {
-    this.width = a -= this.A.offsetWidth
-    this.d.right = this.width - this.D
-    this.F.style.width = this.width + 'px'
+  var SLIDER_CONTROLS = Fa.prototype
+
+  SLIDER_CONTROLS.U = function (a) {
+    this.sliderThumbHitidth = a -= this.A.offsetWidth
+    this.d.right = this.sliderThumbHitidth - this.D
+    this.F.style.width = this.sliderThumbHitidth + 'px'
     this.A.style.left = a + 10 + 'px'
     a = this.map(this.value, this.R, this.Q, this.d.left, this.d.right)
     r.o(this.g, a, 0)
   }
-  n.p = function (arg) {
+  SLIDER_CONTROLS.p = function (arg) {
     this.za()
     this.Ka = arg.Ca !== global_i ? arg.Ca : 1
     this.id = arg.id
@@ -975,15 +998,20 @@ var global_V = !1
     this.Ia = arg.ma !== global_i ? arg.ma : arg.max
     this.ba = arg.ba || function () {}
     this.La = arg.r !== global_i ? arg.r : function () {}
-    this.width = 175
+    this.sliderThumbHitidth = 175
     this.D = 16
-    this.d = { top: 0, left: 0, right: this.width - this.D, bottom: 0 }
+    this.d = {
+      top: 0,
+      left: 0,
+      right: this.sliderThumbHitidth - this.D,
+      bottom: 0,
+    }
     this.u.appendChild(this.el_sliderBoard)
     this.Ma()
     var b = this
     r.ka({
       element: this.g,
-      handle: this.W,
+      handle: this.sliderThumbHit,
       Sa: this.d,
       T: function () {
         b.T()
@@ -1004,14 +1032,17 @@ var global_V = !1
       r.v(b.g).x > a && r.o(b.g, a, 0)
     }, 0)
   }
-  n.za = function () {
+
+  SLIDER_CONTROLS.za = function () {
+    console.log('calling n.za()')
+    console.log(' what is this', this)
     this.el_sliderBoard = document.createElement('div')
     this.el_sliderBoard.className = 'sliderContainer'
     this.g = document.createElement('div')
     this.g.className = 'sliderThumb'
-    this.W = document.createElement('div')
-    this.W.className = 'sliderThumbHit'
-    this.g.appendChild(this.W)
+    this.sliderThumbHit = document.createElement('div')
+    this.sliderThumbHit.className = 'sliderThumbHit'
+    this.g.appendChild(this.sliderThumbHit)
     this.F = document.createElement('div')
     this.F.className = 'sliderTrack'
     this.el_sliderScale = document.createElement('div')
@@ -1024,7 +1055,8 @@ var global_V = !1
     this.el_sliderBoard.appendChild(this.g)
     this.el_sliderBoard.appendChild(this.A)
   }
-  n.va = function (a) {
+
+  SLIDER_CONTROLS.va = function (a) {
     if (a != this.value) {
       var b = this.map(a, this.R, this.Q, this.d.left, this.d.right)
       r.o(this.g, b, 0)
@@ -1034,24 +1066,24 @@ var global_V = !1
       this.ba(this.value, this.Y, this)
     }
   }
-  n.Va = function () {
+  SLIDER_CONTROLS.Va = function () {
     return this.value
   }
-  n.J = function (a, b) {
+  SLIDER_CONTROLS.J = function (a, b) {
     this.va(this.map(b, this.d.left, this.d.right, this.R, this.Q))
   }
-  n.T = function () {
+  SLIDER_CONTROLS.T = function () {
     this.g.className = 'sliderThumbActive'
     this.F.className = 'sliderTrackActive'
-    this.d.right = this.width - this.g.offsetWidth
+    this.d.right = this.sliderThumbHitidth - this.g.offsetWidth
   }
-  n.r = function () {
+  SLIDER_CONTROLS.r = function () {
     this.g.className = 'sliderThumb'
     this.F.className = 'sliderTrack'
     this.La.apply(global_A, [this.value, this.Y])
   }
-  n.Xa = function () {}
-  n.Oa = function (a) {
+  SLIDER_CONTROLS.Xa = function () {}
+  SLIDER_CONTROLS.Oa = function (a) {
     var b = a ? a : window.event,
       c = r.v(
         this.el_sliderBoard.parentElement
@@ -1070,10 +1102,10 @@ var global_V = !1
     this.J(b, c, 0)
     b.preventDefault()
     try {
-      this.W.dispatchEvent(a)
+      this.sliderThumbHit.dispatchEvent(a)
     } catch (e) {}
   }
-  n.Ma = function () {
+  SLIDER_CONTROLS.Ma = function () {
     var a = this
     this.F.addEventListener(
       'mousedown',
@@ -1083,16 +1115,16 @@ var global_V = !1
       global_V
     )
   }
-  n.map = function (a, b, c, d, e) {
+  SLIDER_CONTROLS.map = function (a, b, c, d, e) {
     a = d + ((a - b) / (c - b)) * (e - d)
     a > e ? (a = e) : a < d && (a = d)
     return a
   }
-  n.toString = function () {
+  SLIDER_CONTROLS.toString = function () {
     return '[Slider]'
   }
-  n = slider_initialize.prototype
-  n.p = function (a) {
+  SLIDER_CONTROLS = init_slider.prototype
+  SLIDER_CONTROLS.p = function (a) {
     this.ya()
     if (a.draggable) {
       this.O = {
@@ -1119,7 +1151,7 @@ var global_V = !1
       )
     }
   }
-  n.add = function (a, b, c, d, e, f, h, g, B) {
+  SLIDER_CONTROLS.add = function (a, b, c, d, e, f, h, g, B) {
     var k = document.createElement('div')
     k.className = 'sliderItem'
     this.el_sliderBoard.appendChild(k)
@@ -1141,13 +1173,13 @@ var global_V = !1
     a = new Fa(m)
     this.V.push({ scope: f, Na: a })
   }
-  n.U = function (a, b) {
+  SLIDER_CONTROLS.U = function (a, b) {
     for (var c = a - 40, d = this.V.length; d--; ) this.V[d].Na.U(c, b)
     this.el_sliderBoard.style.width = a + 'px'
     this.el_sliderBoardCloseButton.style.left =
       a - this.el_sliderBoardCloseButtonIcon.offsetWidth - 12 + 'px'
   }
-  n.ya = function () {
+  SLIDER_CONTROLS.ya = function () {
     this.el_sliderBoard = document.createElement('div')
     this.el_sliderBoard.className = 'sliderBoard'
     this.el_sliderBoardBG = document.createElement('div')
@@ -1184,10 +1216,10 @@ var global_V = !1
     this.el_sliderBoard.appendChild(this.el_sliderBoardTitleBar)
     this.el_sliderBoard.appendChild(this.el_sliderBoardCloseButton)
   }
-  n.move = function (a, b) {
+  SLIDER_CONTROLS.move = function (a, b) {
     r.o(this.el_sliderBoard, a, b)
   }
-  n.ga = function () {
+  SLIDER_CONTROLS.ga = function () {
     var a = window.innerWidth - this.el_sliderBoardBG.offsetWidth,
       b = window.innerHeight - this.el_sliderBoardBG.offsetHeight
     0 > a && (a = 0)
@@ -1201,23 +1233,24 @@ var global_V = !1
     this.O.d.right = a
     this.O.d.bottom = b
   }
-  n.show = function () {
+  SLIDER_CONTROLS.show = function () {
     this.el_sliderBoard.style.visibility = 'visible'
-    this.w = global_p
+    this.sliderThumbHit = global_p
     clearInterval(this.K)
   }
-  n.P = function () {
+  SLIDER_CONTROLS.P = function () {
     this.el_sliderBoard.style.visibility = 'hidden'
-    this.w = global_V
+    this.sliderThumbHit = global_V
     clearInterval(this.K)
   }
-  n.X = function () {
+
+  SLIDER_CONTROLS.X = function () {
     console.log('close?')
     this.S && this.S.apply(global_A)
     if (this.ua) {
       var a = r.v(this.el_sliderBoard)
       this.move(a.x, a.y - 4)
-      this.w = global_V
+      this.sliderThumbHit = global_V
       this.el_sliderBoard.style.opacity = 0.75
       clearInterval(this.K)
       this.K = setInterval(
@@ -1233,7 +1266,7 @@ var global_V = !1
       )
     }
   }
-  n.xa = function () {
+  SLIDER_CONTROLS.xa = function () {
     this.el_sliderBoardCloseButtonIcon.style.color = '#CCCCCC'
     var a = this.el_sliderBoardCloseButtonIcon.style
     setTimeout(function () {
@@ -1244,9 +1277,15 @@ var global_V = !1
       a.WebkitTransition = ''
     }, 450)
   }
-  delete n
+  delete SLIDER_CONTROLS
 
-  console.log('n', n)
+  console.log('SLIDER_CONTROLS', SLIDER_CONTROLS)
+
+  console.log('END SLIDER CONTROLS')
+  console.log('=============================================')
+  console.log('=============================================')
+  console.log('=============================================')
+  console.log('BEGIN x')
 
   // X
   X.prototype.p = function (a, b, c, d) {
@@ -1380,7 +1419,13 @@ var global_V = !1
       e > this.L && (this.L = e)
     }
   }
-  // console.log("X", X);
+  console.log('X', X)
+
+  console.log('END X')
+  console.log('=============================================')
+  console.log('=============================================')
+  console.log('=============================================')
+  console.log('BEGIN G')
 
   // G
   G.prototype.p = function (a, b, c, d) {
@@ -1552,254 +1597,263 @@ var global_V = !1
       if ('undefined' != typeof a.style[c]) return c
     return global_V
   }
-  // console.log("G", G);
+  console.log('G', G)
+
+  console.log('END G')
+  console.log('=============================================')
+  console.log('=============================================')
+  console.log('=============================================')
+  console.log('BEGIN pb and all initial variables')
 
   var pb = (function () {
-      function a(a) {
-        a = a ? 'addEventListener' : 'removeEventListener'
-        u[a]('touchend', d, global_V)
-        s[a]('touchend', k, global_V)
-      }
-      function setIconBarWidthHeight() {
-        getElementByIdWrapper('iconBar').style.width = window.innerWidth + 'px'
-        z.style.width = window.innerWidth + 'px'
-        z.style.height = window.innerHeight + 1 + 'px'
-      }
-      function c(a) {
-        var b, c
-        b || (b = '#BBBBBB')
-        c || (c = '#444444')
-        a.style.backgroundColor = b
-        setTimeout(function () {
-          a.style.backgroundColor = c
-          a.style.WebkitTransition = 'background-color 0.4s ease-in-out'
-        }, 100)
-        setTimeout(function () {
-          a.style.WebkitTransition = ''
-        }, 750)
-      }
-      function d() {
-        g.w
-          ? e()
-          : (window.addEventListener('resize', f, global_V), (g.S = e), j())
-      }
-      function e() {
-        g.S = global_A
-        l()
-        window.removeEventListener('resize', f, global_V)
-      }
-      function f() {
-        setTimeout(function () {
-          var a = h()
-          g.el_sliderBoard.style.left = '0px'
-          g.el_sliderBoard.style.top = '0px'
-          g.move(a.x, a.y)
-          r.ra(g.el_sliderBoard)
-        }, 10)
-      }
-      function h() {
-        var a, b
-        switch (v) {
-          case '':
-            b = window.innerHeight - g.el_sliderBoard.offsetHeight
-            a = Math.round(0.5 * (window.innerWidth - t))
-            b = Math.round(0.5 * b - (80 < b ? 22 : 5))
-            break
-          case 'TR':
-            a = window.innerWidth - t - 32
-            b = 60
-            break
-          default:
-            console.log('Board align wrong.')
-        }
-        0 > b && (b = 0)
-        return { x: Math.round(a), y: Math.round(b) }
-      }
-      function j() {
-        ha = global_p
-        clearInterval(y)
-        var a = h(),
-          b = a.x,
-          c = a.y
+    function a(a) {
+      a = a ? 'addEventListener' : 'removeEventListener'
+      u[a]('touchend', d, global_V)
+      s[a]('touchend', k, global_V)
+    }
+    function setIconBarWidthHeight() {
+      getElementByIdWrapper('iconBar').style.width = window.innerWidth + 'px'
+      z.style.width = window.innerWidth + 'px'
+      z.style.height = window.innerHeight + 1 + 'px'
+    }
+    function c(a) {
+      var b, c
+      b || (b = '#BBBBBB')
+      c || (c = '#444444')
+      a.style.backgroundColor = b
+      setTimeout(function () {
+        a.style.backgroundColor = c
+        a.style.WebkitTransition = 'background-color 0.4s ease-in-out'
+      }, 100)
+      setTimeout(function () {
+        a.style.WebkitTransition = ''
+      }, 750)
+    }
+    function d() {
+      g.w
+        ? e()
+        : (window.addEventListener('resize', f, global_V), (g.S = e), j())
+    }
+    function e() {
+      g.S = global_A
+      l()
+      window.removeEventListener('resize', f, global_V)
+    }
+    function f() {
+      setTimeout(function () {
+        var a = h()
         g.el_sliderBoard.style.left = '0px'
         g.el_sliderBoard.style.top = '0px'
-        g.move(b, 0)
+        g.move(a.x, a.y)
+        r.ra(g.el_sliderBoard)
+      }, 10)
+    }
+    function h() {
+      var a, b
+      switch (v) {
+        case '':
+          b = window.innerHeight - g.el_sliderBoard.offsetHeight
+          a = Math.round(0.5 * (window.innerWidth - t))
+          b = Math.round(0.5 * b - (80 < b ? 22 : 5))
+          break
+        case 'TR':
+          a = window.innerWidth - t - 32
+          b = 60
+          break
+        default:
+          console.log('Board align wrong.')
+      }
+      0 > b && (b = 0)
+      return { x: Math.round(a), y: Math.round(b) }
+    }
+    function j() {
+      ha = global_p
+      clearInterval(y)
+      var a = h(),
+        b = a.x,
+        c = a.y
+      g.el_sliderBoard.style.left = '0px'
+      g.el_sliderBoard.style.top = '0px'
+      g.move(b, 0)
+      g.el_sliderBoard.style.opacity = 0
+      g.show()
+      setTimeout(function () {
+        g.el_sliderBoard.style.opacity = 1
+        g.el_sliderBoard.style.WebkitTransform =
+          'translate3d(' + b + 'px,' + c + 'px,0px)'
+        g.el_sliderBoard.style.WebkitTransition =
+          'all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)'
+      }, 0)
+      setTimeout(function () {
+        g.el_sliderBoard.style.WebkitTransition = ''
+        r.ra(g.el_sliderBoard)
+        Ya || ga()
+      }, 500)
+    }
+    function l() {
+      ha = global_p
+      clearInterval(y)
+      var a = 0.3 * -h().y
+      setTimeout(function () {
         g.el_sliderBoard.style.opacity = 0
-        g.show()
-        setTimeout(function () {
-          g.el_sliderBoard.style.opacity = 1
-          g.el_sliderBoard.style.WebkitTransform =
-            'translate3d(' + b + 'px,' + c + 'px,0px)'
-          g.el_sliderBoard.style.WebkitTransition =
-            'all 0.45s cubic-bezier(0.0,0.55,0.0,1.0)'
-        }, 0)
-        setTimeout(function () {
-          g.el_sliderBoard.style.WebkitTransition = ''
-          r.ra(g.el_sliderBoard)
-          Ya || ga()
-        }, 500)
-      }
-      function l() {
+        g.el_sliderBoard.style.WebkitTransform =
+          'translate3d(0px,' + a + 'px,0px)'
+        g.el_sliderBoard.style.WebkitTransition = 'all 0.25s ease-in-out'
+      }, 0)
+      setTimeout(function () {
+        g.el_sliderBoard.style.WebkitTransition = ''
+        g.P()
+        x || ga()
+      }, 200)
+    }
+    function k() {
+      console.log('k()')
+      if (w == s) {
+        w = { id: 'NULL' }
+        c(s)
+        setIconBarWidthHeight()
+        g.w && e()
         ha = global_p
-        clearInterval(y)
-        var a = 0.3 * -h().y
+        m(global_V)
+        a(global_V)
+        z.style.display = 'block'
+        x = global_p
+        var d = document.getElementById('aboutOverlayInner')
+        d.style.WebkitTransform = 'translate3d(0px,35px,0px)'
+        var f = 0.5 * -d.offsetHeight,
+          f = 300 > window.innerHeight ? f - 4 : f - 8
+        Q && (f -= 10)
         setTimeout(function () {
-          g.el_sliderBoard.style.opacity = 0
-          g.el_sliderBoard.style.WebkitTransform =
-            'translate3d(0px,' + a + 'px,0px)'
-          g.el_sliderBoard.style.WebkitTransition = 'all 0.25s ease-in-out'
+          z.style.opacity = 1
+          z.style.WebkitTransition = 'opacity 0.25s ease-out'
+          d.style.WebkitTransform = 'translate3d(0px,' + f + 'px,0px)'
+          d.style.WebkitTransition =
+            '-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)'
         }, 0)
         setTimeout(function () {
-          g.el_sliderBoard.style.WebkitTransition = ''
-          g.P()
-          x || ga()
-        }, 200)
+          z.addEventListener('touchstart', n, global_V)
+        }, 650)
       }
-      function k() {
-        console.log('called k()')
-        if (w == s) {
-          w = { id: 'NULL' }
-          c(s)
-          setIconBarWidthHeight()
-          g.w && e()
-          ha = global_p
-          m(global_V)
-          a(global_V)
-          z.style.display = 'block'
-          x = global_p
-          var d = document.getElementById('aboutOverlayInner')
-          d.style.WebkitTransform = 'translate3d(0px,35px,0px)'
-          var f = 0.5 * -d.offsetHeight,
-            f = 300 > window.innerHeight ? f - 4 : f - 8
-          Q && (f -= 10)
-          setTimeout(function () {
-            z.style.opacity = 1
-            z.style.WebkitTransition = 'opacity 0.25s ease-out'
-            d.style.WebkitTransform = 'translate3d(0px,' + f + 'px,0px)'
-            d.style.WebkitTransition =
-              '-webkit-transform 0.45s cubic-bezier(0.0,0.5,0.0,1.0)'
-          }, 0)
-          setTimeout(function () {
-            z.addEventListener('touchstart', n, global_V)
-          }, 650)
-        }
-      }
-      function n(b) {
-        b.target == z &&
-          (setTimeout(function () {
-            z.removeEventListener('touchstart', n, global_V)
-            z.style.opacity = 0
-            z.style.WebkitTransition = 'opacity 0.2s ease-out'
-            var a = document.getElementById('aboutOverlayInner')
-            a.style.WebkitTransform = 'translate3d(0px,8px,0px)'
-            a.style.WebkitTransition =
-              '-webkit-transform 0.25s cubic-bezier(1.000, 0.000, 1.000, 0.750)'
-          }, 0),
-          setTimeout(function () {
-            z.style.display = 'none'
-            m(global_p)
-            a(global_p)
-            ga()
-            x = global_V
-          }, 300))
-      }
-
-      function m(arg) {
-        arg
-          ? document.addEventListener('touchstart', o, global_V)
-          : document.removeEventListener('touchstart', o, global_V)
-      }
-
-      function o(arg) {
-        3 != arg.target.nodeType && arg.preventDefault()
-      }
-
-      var v = '',
-        t = 280,
-        u,
-        s,
-        z,
-        x = global_V,
-        w,
-        y
-
-      return {
-        p: function () {
-          if (Q) {
-            var d = navigator.userAgent.split('Android ')[1],
-              d = d.substring(0, d.indexOf(';'))
-            if (2.2 > parseFloat(d)) {
-              outElementInitialize(
-                '<br><br><div style="font-family:sans;font-size:20px;color:#666666;padding:0 10px">Hello,<br><br>Sorry but you need a newer Android version to run this, at least <strong>2.2</strong> (Froyo).<br><br>But you can still view this site on a desktop computer instead.</div>'
-              )
-              return
-            }
-            S.ca = 1.5
-          }
-          var e = getElementByIdWrapper('iconBar')
-          e.style.display = 'block'
-          w = s = getElementByIdWrapper('infoBTN')
-          s.addEventListener(
-            'touchstart',
-            function () {
-              w = s
-              c(s)
-            },
-            global_V
-          )
-          u = getElementByIdWrapper('optionsBTN')
-          u.addEventListener(
-            'touchstart',
-            function () {
-              c(u)
-            },
-            global_V
-          )
+    }
+    function n(b) {
+      b.target == z &&
+        (setTimeout(function () {
+          z.removeEventListener('touchstart', n, global_V)
+          z.style.opacity = 0
+          z.style.WebkitTransition = 'opacity 0.2s ease-out'
+          var a = document.getElementById('aboutOverlayInner')
+          a.style.WebkitTransform = 'translate3d(0px,8px,0px)'
+          a.style.WebkitTransition =
+            '-webkit-transform 0.25s cubic-bezier(1.000, 0.000, 1.000, 0.750)'
+        }, 0),
+        setTimeout(function () {
+          z.style.display = 'none'
           m(global_p)
           a(global_p)
-          z = getElementByIdWrapper('aboutOverlay')
-          g.ua = global_V
-          g.U(t, -1)
-          ra && (v = 'TR')
-          Q ||
-            document.addEventListener(
-              'touchstart',
-              function () {
-                0 == document.body.scrollTop &&
-                  setTimeout(window.scrollTo, 10, 0, 1)
-              },
-              global_V
+          ga()
+          x = global_V
+        }, 300))
+    }
+
+    function m(arg) {
+      arg
+        ? document.addEventListener('touchstart', o, global_V)
+        : document.removeEventListener('touchstart', o, global_V)
+    }
+
+    function o(arg) {
+      3 != arg.target.nodeType && arg.preventDefault()
+    }
+
+    var v = '',
+      t = 280,
+      u,
+      s,
+      z,
+      x = global_V,
+      w,
+      y
+
+    return {
+      p: function () {
+        if (Q) {
+          var d = navigator.userAgent.split('Android ')[1],
+            d = d.substring(0, d.indexOf(';'))
+          if (2.2 > parseFloat(d)) {
+            init_el_out(
+              '<br><br><div style="font-family:sans;font-size:20px;color:#666666;padding:0 10px">Hello,<br><br>Sorry but you need a newer Android version to run this, at least <strong>2.2</strong> (Froyo).<br><br>But you can still view this site on a desktop computer instead.</div>'
             )
-          setTimeout(function () {
-            handler_orientationchange()
-            setIconBarWidthHeight()
-          }, 100)
-          setTimeout(
+            return
+          }
+          S.ca = 1.5
+        }
+        var e = getElementByIdWrapper('iconBar')
+        e.style.display = 'block'
+        w = s = getElementByIdWrapper('infoBTN')
+        s.addEventListener(
+          'touchstart',
+          function () {
+            w = s
+            c(s)
+          },
+          global_V
+        )
+        u = getElementByIdWrapper('optionsBTN')
+        u.addEventListener(
+          'touchstart',
+          function () {
+            c(u)
+          },
+          global_V
+        )
+        m(global_p)
+        a(global_p)
+        z = getElementByIdWrapper('aboutOverlay')
+        g.ua = global_V
+        g.U(t, -1)
+        ra && (v = 'TR')
+        Q ||
+          document.addEventListener(
+            'touchstart',
             function () {
-              Q &&
-                ((getElementByIdWrapper('out').style.height = '100%'),
-                handler_orientationchange())
-              window.onresize = handler_orientationchange
-              window.addEventListener('resize', setIconBarWidthHeight, global_V)
-              getElementByIdWrapper('stickyContainer').style.visibility =
-                'visible'
-              ga()
+              0 == document.body.scrollTop &&
+                setTimeout(window.scrollTo, 10, 0, 1)
             },
-            P ? 150 : 1250
+            global_V
           )
-          P
-            ? (setTimeout(function () {
-                e.style.opacity = 1
-                e.style.WebkitTransition = 'opacity 0.55s ease-in-out'
-              }, 1500),
-              setTimeout(function () {
-                e.style.WebkitTransition = ''
-              }, 3e3))
-            : (e.style.opacity = 1)
-        },
-      }
-    })(),
-    el_canvas,
+        setTimeout(function () {
+          handler_orientationchange()
+          setIconBarWidthHeight()
+        }, 100)
+        setTimeout(
+          function () {
+            Q &&
+              ((getElementByIdWrapper('out').style.height = '100%'),
+              handler_orientationchange())
+            window.onresize = handler_orientationchange
+            window.addEventListener('resize', setIconBarWidthHeight, global_V)
+            getElementByIdWrapper('stickyContainer').style.visibility =
+              'visible'
+            ga()
+          },
+          P ? 150 : 1250
+        )
+        P
+          ? (setTimeout(function () {
+              e.style.opacity = 1
+              e.style.WebkitTransition = 'opacity 0.55s ease-in-out'
+            }, 1500),
+            setTimeout(function () {
+              e.style.WebkitTransition = ''
+            }, 3e3))
+          : (e.style.opacity = 1)
+      },
+    }
+  })()
+
+  console.log('pb', pb)
+
+  var el_canvas,
     drawingContext,
     S,
     E = 0,
@@ -1891,8 +1945,6 @@ var global_V = !1
       window.setTimeout(arg, 15)
     }
   })()
-
-  // console.log("pb", pb);
 
   window.onload = function () {
     getElementByIdWrapper('stickyContainer').style.visibility = 'hidden'
